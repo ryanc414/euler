@@ -1,0 +1,15 @@
+# smalest integer divisible by all integers in range 0-20
+n = 20
+n_max = int(1.0e8)
+i = 1
+
+while n < n_max:
+    while n % i == 0:
+        i += 1
+    if i >= 20:
+        break
+    else:
+        i = 1
+        n += 1
+
+print n
