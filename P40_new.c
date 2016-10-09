@@ -6,7 +6,6 @@
 void fill_digit_nums(long int *);
 void fill_digit_values(char *, long int *);
 char retrieve_digit(long int, long int, long int);
-int number_of_digits(int);
 void print_final_product(char *);
 
 
@@ -39,18 +38,21 @@ void fill_digit_nums(long int *target_array)
  * Champernowne's constant. */
 void fill_digit_values(char *digit_values, long int *digit_nums)
 {
-    long int n, total_digits;     
-    int i, j, next_digits;
+    long int n, total_digits = 0;
+    int i = 0, next_digits;
 
-    for (n = 1, i = 0, next_digits = 1, total_digits = 0; i < NUM_DIGITS; n++) {
-        if (n == digit_nums[next_digits])
-            next_digits++;
-        total_digits += next_digits;
-        if (total_digits  >= digit_nums[i])
-            digit_values[i++] = 
-                retrieve_digit(digit_nums[i], total_digits - next_digits, n);
-    }
+    for (next_digits = 1; next_digits <= NUM_DIGITS; next_digits++)
+        for (n = digit_nums[next_digits - 1]; n < digit_nums[next_digits]; n++) {
+            total_digits += next_digits;
+            if (total_digits  >= digit_nums[i]) {
+                digit_values[i] = 
+                    retrieve_digit(digit_nums[i], total_digits - next_digits, 
+                                   n);
+                i++;
+            }
+        }
 }
+
 
 /* Retrieve the digit at position target, for a number that starts after 
  * position start. */
