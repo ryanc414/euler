@@ -1,6 +1,6 @@
 //fibonacci sequence
 
-#include <iostream>
+#include <stdio.h>
 
 int main()
 {
@@ -33,7 +33,7 @@ int main()
 	}
     }
 
-  std::cout << Sum << "\n";
+  printf("%d\n", Sum);
 
   return 0;
 

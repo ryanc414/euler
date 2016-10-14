@@ -1,46 +1,39 @@
 #include <stdio.h>
+#include <math.h>
 
-#define CACHE_SIZE 1000000
-#define T_START 286
-#define T(n) ((n) * ((n) + 1) / 2)
-#define P(n) ((n) * (3 * (n) - 1) / 2)
-#define H(n) ((n) * (2 * (n) - 1))
-#define IS_PENTAGONAL(n) (binsearch(n, p_cache, CACHE_SIZE) >= 0)
-#define IS_HEXAGONAL(n) (binsearch(n, h_cache, CACHE_SIZE) >= 0)
+#define N_INIT          1 
+#define T(n)            ((n) * ((n) + 1) / 2)
+#define INV_PENT(p)     ((1 + sqrt(1 + 24 * (p))) / 6)
+#define INV_HEX(p)      ((1 + sqrt(1 + 8 * (h))) / 4)
 
-
-long int binsearch(size_t, long int *, size_t);
-void fill_caches(void);
-
-static long int t_cache[CACHE_SIZE];
-static long int p_cache[CACHE_SIZE];
-static long int h_cache[CACHE_SIZE];
-
+int is_pentagonal(long int);
+int is_hexagonal(long int);
 
 main()
 {
-    int n;
+    long int n = N_INIT, t;
 
-    fill_caches();
+    while (!(is_pentagonal(t = T(n)) && is_hexagonal(t)))
+        n++;
 
-    for (n = T_START; n <= CACHE_SIZE; n++)
-        if (IS_PENTAGONAL(t_cache[n]) && IS_HEXAGONAL(t_cache[n])) {
-            printf("%ld is triangular, pentagonal and hexagonal.\n", t_cache[n]);
-            return 0;
-        }
+    printf("%ld is triangular, pentagonal and hexagonal.\n", t);
 
-    return 1;
+    return 0;
 }
 
 
-void fill_caches(void)
+/* An integer is pentagonal if 1 + sqrt(1 + 24P) is a multiple of 6. */
+int is_pentagonal(long int p)
 {
-    int n;
+    double m = INV_PENT(p);
+    return m == floor(m);
+}
 
-    for (n = 1; n <= CACHE_SIZE; n++) {
-        t_cache[n] = T(n);
-        p_cache[n] = P(n);
-        h_cache[n] = H(n);
-    }
+
+/* An integer is hexagonal if 1 + sqrt(1 + 8H) is a multiple of 4. */
+int is_hexagonal(long int h)
+{
+    double m = INV_HEX(p);
+    return m == floor(m);
 }
 
