@@ -1,31 +1,17 @@
 #include <stdio.h>
-#include <math.h>
+#define LIMIT 10 
 
-#define NUM_WORDS 2000
-
-
-void read_words(char **);
-int word_val(char *);
-int find_max_val(char **words);
+static int a[LIMIT];
+void prime_sieve(int *primes, int limit);
 
 main()
 {
-    char *words[NUM_WORDS];
-    read_words(words);
+    int i;
+    prime_sieve(a, LIMIT);
 
-    printf("Max val: %d\n", find_max_val(words));      
+    for (i = 0; a[i] != '\0'; i++)
+        printf("%d ", a[i]);
 
     return 0;
 }
 
-
-int find_max_val(char **words)
-{
-    int val, max_val;
-    while (*words != NULL) {
-        if ((val = word_val(*words++)) > max_val) {
-            max_val = val;
-        }
-    }
-    return max_val;
-}

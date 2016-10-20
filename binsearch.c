@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-long int binsearch(size_t val, long int *array, size_t lim)
+int binsearch(int val, int *array, int lim)
 {
-    unsigned long int low, high, mid;
+    unsigned int low, high, mid;
 
     low = 0;
     high = lim - 1;

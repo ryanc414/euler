@@ -30,7 +30,7 @@ def prime_sieve(n):
         if p is None:
             break
 
-    return primes
+    return set(num for (num, prime) in primes.iteritems() if prime)
 
 if __name__ == '__main__':
     if len(argv) > 1:

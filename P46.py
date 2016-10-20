@@ -2,33 +2,25 @@
 
 from primes import prime_sieve
 
-LIMIT = 1000000
+LIMIT = 10000
+PRIMES = prime_sieve(LIMIT)
+
 
 def main():
-    # generate all primes below limit
-    primes = prime_sieve(LIMIT)
+    candidates = (n for n in xrange(3, LIMIT, 2) if not PRIMES[n])
 
-    # start with a set of all odd non-primes below LIMIT
-    candidates = set(n for n in range(LIMIT) if n not in primes and n % 2 == 1 and n != 1)
-
-    # now, remove each number that can be written as a prime plus 2 * a square
-    for num in prime_plus_two_sq(primes):
-        candidates.discard(num)
-
-    # finally, print smallest remaining candidate
-    if len(candidates) > 0:
-        return min(candidates)
+    for num in candidates:
+        if not prime_and_two_sq(num):
+            return num
 
 
-def prime_plus_two_sq(primes):
-    for prime in primes:
-        for i in xrange(LIMIT):
-            result = prime + 2 * i * i
-            if result > LIMIT:
-                break
-            else:
-                yield result
-
+def prime_and_two_sq(n):
+    for i in range(1, LIMIT):
+        resid = n - 2 * i * i
+        if resid <= 0:
+            return False
+        if PRIMES[resid]:
+            return True
 
 
 
