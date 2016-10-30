@@ -31,8 +31,7 @@ def abundant_sums():
 def generate_abundant_numbers():
     """Returns a list of abundant numbers below upper_limit (inclusive)."""
     return [
-        i for i in range(1, UPPER_LIMIT+1) if sum_of_divisors(i) > i
-    ]
+        i for i in range(1, UPPER_LIMIT+1) if sum_of_divisors(i) > i]
 
 
 if __name__ == '__main__':

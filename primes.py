@@ -1,36 +1,20 @@
 #!/usr/bin/env
 """Generate primes using a prime sieve."""
 from sys import argv
+from math import sqrt
 
 
 def prime_sieve(n):
     """Find all primes from 2 to n."""
-    def discard_multiples(prime):
-        i = 2
-        multiple = i * prime
-        while multiple < n:
-            primes[multiple] = False
-            i += 1
-            multiple = i * prime
+    prime_bool = {num: True for num in range(2, n)}
+    
+    for i in xrange(2, int(sqrt(n) + 1)):
+        if prime_bool[i]:
+            for j in xrange(i * i, n + 1, i):
+                prime_bool[j] = False
 
-    def find_next_prime(prime):
-        prime += 1
-        while prime < n:
-            if primes[prime]:
-                return prime
-            else:
-                prime += 1
+    return set(num for (num, prime) in prime_bool.iteritems() if prime)
 
-    primes = {num: True for num in range(2, n)}
-    p = 2
-
-    while True:
-        discard_multiples(p)
-        p = find_next_prime(p)
-        if p is None:
-            break
-
-    return set(num for (num, prime) in primes.iteritems() if prime)
 
 if __name__ == '__main__':
     if len(argv) > 1:
