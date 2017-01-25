@@ -16,6 +16,16 @@ def prime_sieve(n):
     return set(num for (num, prime) in prime_bool.iteritems() if prime)
 
 
+def is_prime(n):
+    """Check if n is prime."""
+    limit = int(sqrt(n))
+
+    for i in range(2, limit):
+        if n % i == 0:
+            return False
+    return n > 1  # 1 is not prime!
+
+
 if __name__ == '__main__':
     if len(argv) > 1:
         print prime_sieve(int(argv[1]))

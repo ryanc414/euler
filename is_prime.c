@@ -7,5 +7,6 @@ int is_prime(int n)
     for (divisor = 2; divisor <= limit; divisor++)
         if (n % divisor == 0)
             return 0;
-    return 1;
+    return n > 1; /* 1 is not prime! */
 }
+
