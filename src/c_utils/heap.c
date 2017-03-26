@@ -1,8 +1,5 @@
-#include <stdio.h>
+#include <utils.h>
 
-void generate(int, char *);
-void swap(char *, int, int);
-void print_array(char *A);
 
 void generate(int n, char *A)
 {

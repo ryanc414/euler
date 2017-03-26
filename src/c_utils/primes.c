@@ -1,5 +1,16 @@
-#include <math.h>
-#include <stdlib.h>
+#include <utils.h>
+
+
+int is_prime(int n)
+{
+    int divisor, limit = (int) sqrt(n);
+    
+    for (divisor = 2; divisor <= limit; divisor++)
+        if (n % divisor == 0)
+            return 0;
+    return n > 1; /* 1 is not prime! */
+}
+
 
 int prime_sieve(int **primes, int limit)
 {

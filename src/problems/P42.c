@@ -11,13 +11,13 @@ void read_words(char **);
 int count_tri_nums(char **);
 int is_triangular(char *);
 int word_val(char *);
-long int binsearch(size_t, int *, size_t);
+int binsearch(int, int *, int);
+
 static int tri_nums[N_LIMIT];
 
 
-main()
+int main()
 {
-    int tri_word_count;
     char *words[NUM_WORDS];
 
     fill_tri_nums();

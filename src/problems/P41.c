@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define NUM_DIGITS 9
 
@@ -8,9 +9,10 @@ int find_next_k(char *, int);
 int find_next_l(char *, int, int);
 int is_prime(int);
 void reverse(char *);
+void swap_elements(char *, int, int);
 
 
-main()
+int main()
 {
     char pandigital[NUM_DIGITS + 1];
     int len = NUM_DIGITS;

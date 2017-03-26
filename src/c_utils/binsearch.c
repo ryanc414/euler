@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <utils.h>
 
 int binsearch(int val, int *array, int lim)
 {

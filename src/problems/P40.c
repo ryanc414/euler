@@ -10,7 +10,7 @@ int number_of_digits(int);
 void print_final_product(char *);
 
 
-main()
+int main()
 {
     long int digit_nums[NUM_DIGITS];
     char digit_values[NUM_DIGITS];
@@ -40,15 +40,17 @@ void fill_digit_nums(long int *target_array)
 void fill_digit_values(char *digit_values, long int *digit_nums)
 {
     long int n, total_digits;     
-    int i, j, next_digits;
+    int i, next_digits;
 
     for (n = 1, i = 0, next_digits = 1, total_digits = 0; i < NUM_DIGITS; n++) {
         if (n == digit_nums[next_digits])
             next_digits++;
         total_digits += next_digits;
-        if (total_digits  >= digit_nums[i])
-            digit_values[i++] = 
+        if (total_digits  >= digit_nums[i]) {
+            digit_values[i] = 
                 retrieve_digit(digit_nums[i], total_digits - next_digits, n);
+            i++;
+        }
     }
 }
 
@@ -56,7 +58,6 @@ void fill_digit_values(char *digit_values, long int *digit_nums)
  * position start. */
 char retrieve_digit(long int target, long int start, long int num)
 {
-    int i;
     char num_str[MAX_NUM_LEN];
 
     sprintf(num_str, "%ld", num);

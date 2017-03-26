@@ -1,3 +1,6 @@
+#include <utils.h>
+
+
 /* Permutes a character array a in lexicographic order. The array must be 
  * null-terminated. Returns 0 if no more permutations exist. */
 int permute(char *a, int len)
