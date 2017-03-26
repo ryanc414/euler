@@ -4,7 +4,7 @@ int is_prime(int n);
 int prime_and_two_sq(int n);
 
 
-main()
+int main()
 {
     int n;
 

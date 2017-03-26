@@ -11,7 +11,7 @@ long int binsearch(size_t, long int *, size_t);
 
 long int p_cache[CACHE_SIZE];
 
-main()
+int main()
 {
     long int n;
 

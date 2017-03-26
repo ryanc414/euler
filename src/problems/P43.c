@@ -13,7 +13,7 @@ long int atoin(char *, int);
 static const char divisors[] = {2, 3, 5, 7, 11, 13, 17};
 static const char starting_digits[] = {1, 2, 3, 4, 5, 6, 7};
 
-main()
+int main()
 {
     char pandigital[] = "0123456789";
     long int pandigital_sum = 0;

@@ -9,7 +9,7 @@
 int is_pentagonal(long int);
 int is_hexagonal(long int);
 
-main()
+int main()
 {
     long int n = N_INIT, t;
 

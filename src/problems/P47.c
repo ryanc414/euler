@@ -4,10 +4,11 @@
 #define NUM_FACTORS 4 
 #define LIMIT 1000000l
 
+int num_distinct_prime_factors(long int);
 void prime_sieve(long int *primes, long int limit);
 long int primes[LIMIT];
 
-main()
+int main()
 {
     long int n;
     int count = 0;
