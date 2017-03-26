@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-# Nth prime
+"""P7: Nth prime"""
 
-from tools.primes import is_prime
+from primes import is_prime
 from itertools import count
 
 N = 10001  # We want to find the 10,001st prime
@@ -16,9 +16,9 @@ def main():
         if prime_count == N:
             break
 
-    print i 
+    return i 
 
         
 if __name__ == '__main__':
-    main()
+    print("10,001st prime: {}".format(main()))
 

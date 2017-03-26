@@ -1,55 +1,42 @@
 #!/usr/bin/env python
-# largest prime factor of 600851475143
+"""P3: Largest prime factor of 600851475143"""
+
+from math import sqrt
+from primes import is_prime
 
 N = 600851475143
-prime_factors = []
+prime_factors = set() 
 
-# function to find factors of integer N
+
+def main():
+    """Find the largest prime factor of N."""
+    factors = find_factors(N)
+
+    for factor in factors:
+        if is_prime(factor):
+            print("Prime factor found! {}".format(factor))
+            prime_factors.add(factor)
+
+    return sorted(prime_factors)[-1]
+
+
 def find_factors(N):
-    factors = []
-    counter_factors = []
-    prime = True
+    """Find factors of integer n."""
+    factors = set()
+    counter_factors = set()
 
-    sqrt_N = int(N ** 0.5)
+    limit = int(sqrt(N))
 
-    for i in range(2, sqrt_N):
+    for i in range(2, limit):
         if (N % i) == 0:
-            print "Factor found! %d" % i
-            prime = False
-            factors.append(i)
+            factors.add(i)
     
     for factor in factors:
-        counter_factors.append(N / factor)
+        counter_factors.add(int(N / factor))
 
-    factors = factors + counter_factors
+    return factors | counter_factors
 
-    return factors
 
-factors = find_factors(N)
+if __name__ == '__main__':
+    print("\nLargest prime factor is {}".format(main()))
 
-# print factors
-
-complete = False
-
-while complete == False:
-    complete = True
-
-    for factor in factors:
-        subfactors = find_factors(factor)
-
-        if subfactors == []:
-            print "Prime factor found! %d" % factor
-            if factor not in prime_factors:
-                prime_factors.append(factor)
-            factors.remove(factor)
-        else:
-            complete = False
-            factors.remove(factor)
-            for n in subfactors:
-                if n not in factors:
-                    factors.append(n)
-
-    print factors
-
-print prime_factors
-            

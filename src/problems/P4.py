@@ -1,17 +1,27 @@
 #!/usr/bin/env python
-# largest palindromic product of two 3-digit nums
+"""P4: largest palindromic product of two 3-digit nums."""
+
+LOWER_LIMIT = 100
+UPPER_LIMIT = 1000
+
+
+def main():
+    largest_palindrome = 0 
+
+    for i in range(LOWER_LIMIT, UPPER_LIMIT):
+        for j in range(i, UPPER_LIMIT):
+            product = i * j
+            if is_palindrome(product) and product > largest_palindrome:
+                largest_palindrome = product
+
+    return largest_palindrome
+
 
 def is_palindrome(num):
-    num_list = [int(d) for d in str(num)]
-    return num_list == num_list[::-1]
+    numstr = str(num)
+    return numstr == numstr[::-1]
 
 
-largest_palindrome = 0
+if __name__ == '__main__':
+    print("Largest palindromic product: {}".format(main()))
 
-for i in range(100, 1000):
-    for j in range(100, 1000):
-        product = i * j
-        if is_palindrome(product) and product > largest_palindrome:
-            largest_palindrome = product
-
-print largest_palindrome

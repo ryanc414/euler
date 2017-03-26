@@ -20,7 +20,7 @@ def is_prime(n):
     """Check if n is prime."""
     # Sanity checking
     assert isinstance(n, int), (
-        "Error: cannot check type {0} for prime-ness.".format(type(n)))
+        "Error: cannot check {0} (type {1}) for prime-ness.".format(n, type(n)))
     if n < 2:
         return False
 
@@ -35,7 +35,7 @@ def is_prime(n):
 
 if __name__ == '__main__':
     if len(argv) > 1:
-        print prime_sieve(int(argv[1]))
+        print(prime_sieve(int(argv[1])))
     else:
         raise Exception("Specify upper limit on commandline.")
 

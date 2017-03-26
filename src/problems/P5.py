@@ -1,17 +1,20 @@
 #!/usr/bin/env python
-# smalest integer divisible by all integers in range 0-20
-n = 20
-n_max = int(1.0e7)
-i = 3
+"""P5: Smallest integer divisible by all integers in range 1-20"""
 
-while True:
-    # print "n = %d" % n
-    while n % i == 0:
-        i += 1
-    if i >= 20:
-        break
-    else:
-        i = 1
-        n += 20
+from itertools import count
 
-print n
+LIMIT = 20
+
+
+def main():
+    for n in count(LIMIT, LIMIT):
+        for i in range(3, LIMIT):
+            if n % i != 0:
+                break
+        else:
+            return n
+
+
+if __name__ == '__main__':
+    print("Smallest integer divisible by all integers 1-20: {}".format(main()))
+

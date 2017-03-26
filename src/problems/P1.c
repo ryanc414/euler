@@ -1,32 +1,35 @@
-//multiples of 3 and 5
+/* P1: Multiples of 3 and 5 */
 
 #include <stdio.h>
 
-int Sum_ntuples(int n1, int n2)
-{
-  int Sum = 0;
-  int N_Max = 1000;
-  int i = 1;
+#define N_MAX 1000
+#define A 3
+#define B 5
 
-  for (i = 1; i < N_Max; i++)
-    {
-      if (i % n1 == 0 || i % n2 == 0)
-	    {
-	      Sum += i;
-	    }
-    }
+int sum_ntuples(int, int);
 
-  return Sum;
-}
 
+/* Print the sum of multiples of 3 or 5 below 1000. */
 int main()
 {
-  int n1 = 3;
-  int n2 = 5;
-
-  int Sum = Sum_ntuples(n1,n2);
-
-  printf("%d\n", Sum);
+  printf("%d\n", sum_ntuples(A, B));
 
   return 0;
 }
+
+
+/* Sum multiples of x and y below N_MAX. */
+int sum_ntuples(int x, int y)
+{
+    int sum = 0;
+    int i;
+
+    for (i = 1; i < N_MAX; i++) {
+        if (i % x == 0 || i % y == 0) {
+	        sum += i;
+	    }
+    }
+
+  return sum;
+}
+
