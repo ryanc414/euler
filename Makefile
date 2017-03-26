@@ -9,6 +9,7 @@ PY = $(PYSRC:src/problems/%.py=bin/%)
 
 .PHONY: all clean libutil
 all: libutil $(BIN) $(PY)
+	source paths.sh
 
 $(BIN): bin/% : src/problems/% | bin
 	mv $^ $@

@@ -5,8 +5,10 @@
 #define LIMIT 1000000l
 
 int num_distinct_prime_factors(long int);
-void prime_sieve(long int *primes, long int limit);
-long int primes[LIMIT];
+void prime_sieve(int **primes, int limit);
+
+int **primes;
+
 
 int main()
 {
@@ -32,8 +34,8 @@ int num_distinct_prime_factors(long int n)
     long int i;
     int count = 0;
 
-    for (i = 0; primes[i] <= n; i++)
-        if (n % primes[i] == 0)
+    for (i = 0; *primes[i] <= n; i++)
+        if (n % *primes[i] == 0)
             count++;
 
     return count;
