@@ -42,5 +42,10 @@ class NumberTriangle(object):
 
 
 if __name__ == '__main__':
-    my_tri = NumberTriangle(argv[1])
-    my_tri.find_largest_path()
+    try:
+        my_tri = NumberTriangle(argv[1])
+    except IndexError:
+        print "Error, specify number triangle filename on commandline."
+    else:
+        my_tri.find_largest_path()
+

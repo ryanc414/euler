@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 n = 600851475143
 i = 2
 

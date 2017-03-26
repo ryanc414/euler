@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 #!/usr/bin/python
 
 from itertools import permutations 
-from primes import prime_sieve
+from tools.primes import prime_sieve
 
 NUM_DIGITS = 4 
 NUM_TERMS = 3

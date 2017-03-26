@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 #!/usr/bin/python
 
-from primes import prime_sieve
+from tools.primes import prime_sieve
 
 LIMIT = 10000
 PRIMES = prime_sieve(LIMIT)

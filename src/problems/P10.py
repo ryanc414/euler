@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 # sum of all primes below N
-from P7 import is_prime
+from tools.primes import is_prime
 
 N = int(2e6)
 

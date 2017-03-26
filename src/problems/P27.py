@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Quadratic Primes"""
-from P7 import is_prime
+from tools.primes import is_prime
 
 MAX = 1000
 

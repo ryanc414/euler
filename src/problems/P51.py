@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from primes import prime_sieve
+from tools.primes import prime_sieve
 from itertools import combinations
 
 LIMIT = int(1e6)

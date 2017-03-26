@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #!pypy
 """Digit Fifth Powers"""
 from math import log10

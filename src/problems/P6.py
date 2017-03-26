@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # square of sum minus sum of squares
 # (1 + 2 + ...)^2 - 1^2 + 2^2 + ...
 

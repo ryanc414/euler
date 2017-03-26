@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """Trucatable Primes"""
 
-from iterable_nums import IterableInt
-from primes import prime_sieve
+from tools.iterable_nums import IterableInt
+from tools.primes import prime_sieve
 
 DIGIT_PRIMES = set([2, 3, 5, 7])
 UPPER_LIMIT = int(10e5)
@@ -34,7 +34,7 @@ def truncatable_primes():
 def is_truncatable_prime(n):
     def truncate_and_check(m, increment):
         while m:
-            if not PRIMES[m]:
+            if m not in PRIMES:
                 return False
             m = increment(m)
         return True

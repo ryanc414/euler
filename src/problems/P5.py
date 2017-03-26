@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # smalest integer divisible by all integers in range 0-20
 n = 20
 n_max = int(1.0e7)

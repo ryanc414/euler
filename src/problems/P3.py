@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # largest prime factor of 600851475143
 
 N = 600851475143

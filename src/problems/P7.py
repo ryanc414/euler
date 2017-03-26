@@ -1,32 +1,24 @@
+#!/usr/bin/env python
 # Nth prime
 
-N = 10001
-j = 1
+from tools.primes import is_prime
+from itertools import count
 
-def is_prime(n):
-    """Determine if n is a prime number"""
-    # first perform some sanity checks
-    if not isinstance(n, int):
-        return False
-    if n <= 1:
-        return False
-    if n == 2:
-        return True
+N = 10001  # We want to find the 10,001st prime
 
-    # now check for primeness
-    for i in range(2, int(n ** 0.5) + 2):
-        if n % i == 0:
-            return False
-    else:
-        return True
 
 def main():
-    for i in range(1, N+1):
-        j += 1
-        while not is_prime(j):
-            j += 1
-        print "%dth prime found: %d" % (i, j)
-    print j
+    prime_count = 0
 
+    for i in count(1):
+        if is_prime(i):
+            prime_count += 1
+        if prime_count == N:
+            break
+
+    print i 
+
+        
 if __name__ == '__main__':
     main()
+

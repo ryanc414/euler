@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Project Euler Problem 60 - Prime Pair Sets"""
 
-from primes import prime_sieve, is_prime
+from tools.primes import prime_sieve, is_prime
 
 N = 5 
 UPPER_LIMIT = int(1e4)

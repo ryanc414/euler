@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # largest palindromic product of two 3-digit nums
 
 def is_palindrome(num):

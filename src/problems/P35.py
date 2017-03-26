@@ -3,7 +3,7 @@
 Circular Primes
 """
 from P30 import digits
-from primes import prime_sieve
+from tools.primes import prime_sieve
 
 UPPER_LIMIT = int(1e6)
 

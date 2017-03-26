@@ -18,12 +18,19 @@ def prime_sieve(n):
 
 def is_prime(n):
     """Check if n is prime."""
+    # Sanity checking
+    assert isinstance(n, int), (
+        "Error: cannot check type {0} for prime-ness.".format(type(n)))
+    if n < 2:
+        return False
+
+    # Search for possible factors <= sqrt(n)
     limit = int(sqrt(n))
 
-    for i in range(2, limit):
+    for i in range(2, limit + 1):
         if n % i == 0:
             return False
-    return n > 1  # 1 is not prime!
+    return True
 
 
 if __name__ == '__main__':

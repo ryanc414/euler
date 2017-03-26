@@ -3,7 +3,7 @@
 
 OTHER_PRIMES = [3, 7, 109, 673]
 
-from primes import prime_sieve, is_prime
+from tools.primes import prime_sieve, is_prime
 
 
 def main():
