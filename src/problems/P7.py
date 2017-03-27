@@ -16,9 +16,9 @@ def main():
         if prime_count == N:
             break
 
-    return i 
+    return i
 
-        
+
 if __name__ == '__main__':
     print("10,001st prime: {}".format(main()))
 

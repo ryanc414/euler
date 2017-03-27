@@ -1,13 +1,16 @@
 #!/usr/bin/env python
-# special pythagorean triplet
-# find abc for a^2 + b^2 = c^2 and a + b + c = 1000, a < b < c
+"""P9: special pythagorean triplet
+find abc for a^2 + b^2 = c^2 and a + b + c = 1000, a < b < c"""
 
-from sys import exit
+import sys
+
+N = 1000
 
 
 class CannotFindCException(Exception):
 	"""Exception raised when no valid c is found"""
 	pass
+
 
 def get_c(a, b):
 	"""return c for a^2 + b^2 = c^2"""
@@ -17,11 +20,13 @@ def get_c(a, b):
 	else:
 		raise CannotFindCException("a = {0}, b = {1}".format(a, b))
 
+
 def print_results(a, b, c):
 	"""print a, b, c in readable format"""
-	print "a = {0}, b = {1}, c = {2}".format(a, b, c)			
+	print "a = {0}, b = {1}, c = {2}".format(a, b, c)
 	print "Product abc = {0}".format(a * b * c)
-	
+
+
 def find_special_pythagorean_triplet(N):
 	"""main function"""
 	for a in range(1, N + 1):
@@ -29,15 +34,14 @@ def find_special_pythagorean_triplet(N):
 			try:
 				c = get_c(a, b)
 				if a + b + c == N:
-					print_results(a, b, c)
-					exit(0)
+					return (a, b, c)
 			except CannotFindCException:
 				pass
 	else:
 		print "FAIL"
-		
+        sys.exit(1)
+
+
 if __name__ == '__main__':
-	N = 1000
-	find_special_pythagorean_triplet(N)
-	# if we get this far then we haven't found anything
-	exit(2)
+	print_results(find_special_pythagorean_triplet(N))
+

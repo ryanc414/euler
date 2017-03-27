@@ -7,11 +7,11 @@ LDLIBS = -lutil -lm
 PYSRC = $(wildcard src/problems/P*.py)
 PY = $(PYSRC:src/problems/%.py=bin/%)
 
-.PHONY: all clean libutil
+.PHONY: all clean
 all: lib/libutil.so $(BIN) $(PY)
 
 bin/%: src/problems/%.c lib/libutil.so
-	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
+	$(CC) $(CFLAGS) $< -o $@ $(LDLIBS)
 
 bin/%: src/problems/%.py
 	ln -sf ../$< $@
