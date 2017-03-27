@@ -42,4 +42,4 @@ def add_other_combinations(combo_matrix):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())

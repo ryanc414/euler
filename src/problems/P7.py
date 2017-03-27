@@ -20,5 +20,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print("10,001st prime: {}".format(main()))
+    print(("10,001st prime: {}".format(main())))
 

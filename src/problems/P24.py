@@ -3,14 +3,14 @@
 from itertools import permutations
 
 N = 9
-DIGITS = range(N + 1)
+DIGITS = list(range(N + 1))
 TERM = int(1e6)
 
 def main():
     i = 1
     for perm in permutations(DIGITS):
         if i == TERM:
-            print ''.join(map(str, perm))
+            print(''.join(map(str, perm)))
             break
         else:
             i += 1

@@ -23,8 +23,8 @@ def get_c(a, b):
 
 def print_results(a, b, c):
 	"""print a, b, c in readable format"""
-	print "a = {0}, b = {1}, c = {2}".format(a, b, c)
-	print "Product abc = {0}".format(a * b * c)
+	print("a = {0}, b = {1}, c = {2}".format(a, b, c))
+	print("Product abc = {0}".format(a * b * c))
 
 
 def find_special_pythagorean_triplet(N):
@@ -38,7 +38,7 @@ def find_special_pythagorean_triplet(N):
 			except CannotFindCException:
 				pass
 	else:
-		print "FAIL"
+		print("FAIL")
         sys.exit(1)
 
 

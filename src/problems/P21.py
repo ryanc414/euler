@@ -41,7 +41,7 @@ def main():
             if sum_of_divisors(j_div_sum) == j:
                 sum_of_amicable_numbers += (j + j_div_sum)
 
-    print sum_of_amicable_numbers
+    print(sum_of_amicable_numbers)
 
 if __name__ == '__main__':
     main()

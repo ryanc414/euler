@@ -14,8 +14,8 @@ def main():
 
     lowest_set = find_lowest_set(primes)
 
-    print lowest_set
-    print "Sum of lowest set: {0}".format(sum(int(p) for p in lowest_set))
+    print(lowest_set)
+    print("Sum of lowest set: {0}".format(sum(int(p) for p in lowest_set)))
 
 
 class SetFound(Exception):

@@ -11,6 +11,7 @@ from P30 import digits
 from P32 import generate_integers
 from decimal import Decimal
 from operator import mul
+from functools import reduce
 
 LENGTH = 2
 
@@ -36,7 +37,7 @@ def find_all_cancelling_fractions():
             if x != y and x % 10 != 0 and y % 10 != 0:
                 cancelling_fraction = check_for_cancelled_fraction(x, y)
                 if cancelling_fraction is not None:
-                    print cancelling_fraction
+                    print(cancelling_fraction)
                     fractions.add(cancelling_fraction)
     return fractions
 
@@ -109,4 +110,4 @@ class Fraction(object):
         return "{0} / {1}".format(self.x, self.y)
 
 if __name__ == '__main__':
-    print main()
+    print(main())

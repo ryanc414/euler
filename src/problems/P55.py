@@ -16,9 +16,9 @@ def main():
     """Count the number of Lychrel numbers below LIMIT."""
     lyc_count = 0
 
-    for i in xrange(1, LIMIT):
+    for i in range(1, LIMIT):
         n = i
-        for _ in xrange(MAX_ITERATIONS):
+        for _ in range(MAX_ITERATIONS):
             n = reverse_add(n)
             if is_palindrome(n):
                 break
@@ -42,5 +42,5 @@ def is_palindrome(n):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())
 

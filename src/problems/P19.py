@@ -108,4 +108,4 @@ if __name__ == '__main__':
         if day == SUNDAY:
             sunday_count += 1
 
-    print sunday_count
+    print(sunday_count)

@@ -48,18 +48,18 @@ def main(filename):
     try:
         f = open(filename)
     except IOError:
-        print "Error, could not open specified file."
+        print("Error, could not open specified file.")
     else:
         with f:
             encrypted_msg = [int(c) for c in f.read().split(',')]
         msg = guess_decryption(encrypted_msg)
-        print ''.join(chr(c) for c in msg)
+        print(''.join(chr(c) for c in msg))
         return sum(msg)
 
 
 if __name__ == '__main__':
     try:
-        print main(argv[1])
+        print(main(argv[1]))
     except IndexError:
-        print "Error, specify file name."
+        print("Error, specify file name.")
 

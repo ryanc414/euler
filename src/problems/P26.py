@@ -31,4 +31,4 @@ def cycle_length(d):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())

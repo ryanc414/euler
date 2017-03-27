@@ -57,6 +57,6 @@ def is_odd(n):
     return bool(n % 2)
 
 if __name__ == '__main__':
-    print sum(1 for i in range(1, N + 1) 
-              if is_odd(ContinuedFraction(i).find_period()))
+    print(sum(1 for i in range(1, N + 1) 
+              if is_odd(ContinuedFraction(i).find_period())))
 

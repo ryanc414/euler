@@ -24,11 +24,11 @@ class LongNumbers(object):
         try:
             self.read_numbers(argv[1])
         except IndexError:
-            print "Error: must specify file"
+            print("Error: must specify file")
         except IOError:
-            print "Error: could not read file"
+            print("Error: could not read file")
         else:
-            print self.add_all_numbers()
+            print(self.add_all_numbers())
 
     def read_numbers(self, filename):
         """
@@ -108,7 +108,7 @@ class LongNumbers(object):
         Print all the numbers for debugging purposes.
         """
         for num in self.num_list:
-            print num
+            print(num)
 
     @staticmethod
     def convert_list_to_int(list):

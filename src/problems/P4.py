@@ -23,5 +23,5 @@ def is_palindrome(num):
 
 
 if __name__ == '__main__':
-    print("Largest palindromic product: {}".format(main()))
+    print(("Largest palindromic product: {}".format(main())))
 

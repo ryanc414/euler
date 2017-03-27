@@ -10,8 +10,8 @@ def main():
     try:
         search_cubes()
     except SetFound as e:
-        print "Set found: {0}".format(e.result)
-        print "Lowest member of set is: {0}".format(min(e.result))
+        print("Set found: {0}".format(e.result))
+        print("Lowest member of set is: {0}".format(min(e.result)))
 
 
 class SetFound(Exception):
