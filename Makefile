@@ -8,15 +8,15 @@ PYSRC = $(wildcard src/problems/P*.py)
 PY = $(PYSRC:src/problems/%.py=bin/%)
 
 .PHONY: all clean libutil
-all: libutil $(BIN) $(PY)
+all: lib/libutil.so $(BIN) $(PY)
 
-$(BIN): bin/% : src/problems/% | bin
-	mv $^ $@
+bin/%: src/problems/%.c lib/libutil.so
+	$(CC) $(CFLAGS) $^ -o $@ $(LDLIBS)
 
-$(PY): bin/% : src/problems/%.py | bin
+bin/%: src/problems/%.py
 	ln -sf ../$< $@
 
-libutil: $(LIBSRC) 
+lib/libutil.so: $(LIBSRC)
 	$(CC) $(CFLAGS) -shared -fPIC -I src/c_utils src/c_utils/*.c -o lib/libutil.so
 
 clean:
