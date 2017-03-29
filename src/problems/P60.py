@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 """Project Euler Problem 60 - Prime Pair Sets"""
 
-from tools.primes import prime_sieve, is_prime
+from primes import prime_sieve, is_prime
+from tree import Found, Node, traverse_dfs
 
 N = 5 
 UPPER_LIMIT = int(1e4)
@@ -14,40 +15,38 @@ def main():
 
     lowest_set = find_lowest_set(primes)
 
-    print lowest_set
-    print "Sum of lowest set: {0}".format(sum(int(p) for p in lowest_set))
-
-
-class SetFound(Exception):
-    """Signal raised when a big enough set is found."""
-    pass
+    print(lowest_set)
+    print("Sum of lowest set: {}".format(sum(int(p.val) for p in lowest_set)))
 
 
 def find_lowest_set(primes):
     """Finds a set of 5 primes where each pair concatenates to form another
     prime. Assume that these are rare enough for us to find the one with the
     lowest sum first."""
-    def find_next(primes, possible_set, last):
-        """Find the next prime to add to the set, recursively. Jump back up
-        the stack when we find a big enough set."""
-        for p in primes:
-            for q in possible_set:
-                if p == q or not concats_to_prime(p, q):
-                    break
-            else:
-                possible_set.add(p)
-                if len(possible_set) == N:
-                    raise SetFound()
-                else:
-                    find_next(primes, possible_set, p)
-        possible_set.remove(last)
- 
-    possible_set = set()
+    def check_prime(prime_node, possible_set):
+        """Callback function for depth first search algorithm.""" 
+        p = prime_node.val
 
+        for q in possible_set:
+            if p == q or not concats_to_prime(p, q):
+                return False
+        
+        if len(possible_set) == N - 1:
+            possible_set.append(prime_node)
+            raise Found()
+
+        prime_node.children = prime_nodes
+
+        return True
+
+    prime_nodes = [Node(p) for p in primes]
+    
     try:
-        find_next(primes, possible_set, None)
-    except SetFound:
-        return possible_set 
+        for pnode in prime_nodes:
+            possible_set = []
+            traverse_dfs(pnode, possible_set, check_prime) 
+    except Found:
+        return possible_set
     else:
         raise Exception("Couldn't find a big enough set.")
 
