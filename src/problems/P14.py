@@ -76,4 +76,4 @@ def find_max_starter(starters_dict):
 if __name__ == '__main__':
     N = int(1e6)  # we are interested in terms below 1 million
     starter = find_max_starter(find_starter_lengths(N))
-    print "Longest starter was {0}".format(starter)
+    print("Longest starter was {0}".format(starter))

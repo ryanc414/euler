@@ -29,7 +29,7 @@ class Directions(object):
         """
         Check if i, j are valid indices within the grid range
         """
-        if i not in range(self.N) or j not in range(self.N):
+        if i not in list(range(self.N)) or j not in list(range(self.N)):
             raise OutOfRange
 
     def right(self, i, j):
@@ -134,11 +134,11 @@ class Grid(object):
         """
         Prints a grid from file, for debugging purposes
         """
-        print self.N
+        print(self.N)
         for j in range(self.N):
             for i in range(self.N):
-                print self.element(i, j),
-            print '\n'
+                print(self.element(i, j), end=' ')
+            print('\n')
     
     def element(self, i, j):
         """
@@ -190,7 +190,7 @@ class Grid(object):
         for i in range(0, self.N):
             for j in range(0, self.N):
                 self.find_all_products(i, j)
-        print "Max product is: {0}".format(self.maxproduct)
+        print("Max product is: {0}".format(self.maxproduct))
         
 if __name__ == '__main__':
     try:
@@ -199,8 +199,8 @@ if __name__ == '__main__':
         mygrid.print_grid()
         mygrid.iterate_over_elements()
     except IndexError:
-        print "Error: input grid file on command line."
+        print("Error: input grid file on command line.")
     except IOError:
-        print "Error: could not read from file."
+        print("Error: could not read from file.")
     except CouldNotConvertInt:
-        print "Error in converting input to integers."
+        print("Error in converting input to integers.")

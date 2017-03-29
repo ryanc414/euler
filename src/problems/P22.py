@@ -52,11 +52,11 @@ def main():
     """
     if len(argv) > 1:
         try:
-            print get_total_score(read_and_sort(argv[1]))
+            print(get_total_score(read_and_sort(argv[1])))
         except IOError:
-            print "Error reading specified path."
+            print("Error reading specified path.")
     else:
-        print "Error, path must be specified on command line."
+        print("Error, path must be specified on command line.")
 
 
 if __name__ == '__main__':

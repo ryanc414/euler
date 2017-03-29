@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 LIMIT = int(1e11)
-MULTIPLES = range(2, 7)
+MULTIPLES = list(range(2, 7))
 
 def main():
-    for i in xrange(1, LIMIT):
+    for i in range(1, LIMIT):
         for m in MULTIPLES:
             if not contain_same_digits(i, m * i):
                 break
@@ -17,4 +17,4 @@ def contain_same_digits(x, y):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())

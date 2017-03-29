@@ -19,7 +19,7 @@ def double_base_palindromes():
     We only need to check odd numbers, since all even numbers
     will not be palindromes in binary.
     """
-    for n in xrange(1, UPPER_LIMIT, 2):    
+    for n in range(1, UPPER_LIMIT, 2):    
         if is_palindrome(n) and is_palindrome(binary(n)): 
             yield n
 
@@ -39,5 +39,5 @@ def binary(n):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())
 

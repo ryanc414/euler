@@ -7,7 +7,7 @@ UPPER_LIMIT = 28123
 
 def main():
     """Prints the sum of all non-abundant sums"""
-    print sum(non_abundant_sums())
+    print(sum(non_abundant_sums()))
 
 
 def non_abundant_sums():

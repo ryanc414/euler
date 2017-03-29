@@ -51,14 +51,14 @@ def main():
         num_divisors = find_num_divisors(n)
         n += i
         if num_divisors > target_divisors:
-            print ("First triangle number to have over {3} divisors:"
+            print(("First triangle number to have over {3} divisors:"
                   " {0}th number is {1} and has {2} divisors.".format(
                 i, n, num_divisors, target_divisors
             )
-                   )
+                   ))
             break
     else:
-        print "FAIL: maybe make N bigger?"
+        print("FAIL: maybe make N bigger?")
 
 
 if __name__ == '__main__':

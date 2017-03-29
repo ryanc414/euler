@@ -16,5 +16,5 @@ def main():
 
 
 if __name__ == '__main__':
-    print("Smallest integer divisible by all integers 1-20: {}".format(main()))
+    print(("Smallest integer divisible by all integers 1-20: {}".format(main())))
 

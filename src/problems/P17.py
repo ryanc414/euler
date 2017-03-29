@@ -70,4 +70,4 @@ if __name__ == '__main__':
     sum = 0
     for count in count_all_letters():
         sum += count
-    print "Total number of letters is {0}".format(sum)
+    print("Total number of letters is {0}".format(sum))

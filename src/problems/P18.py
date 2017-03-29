@@ -17,7 +17,7 @@ class NumberTriangle(object):
     def read_file(self):
         """Read a number triangle into memory"""
         with open(self.filename) as f:
-            return [map(int, (line.strip()).split(' ')) for line in f]
+            return [list(map(int, (line.strip()).split(' '))) for line in f]
 
     def find_largest_child(self, row, column):
         """Find the value of the largest child of a number in the triangle"""
@@ -38,14 +38,14 @@ class NumberTriangle(object):
                  self.find_largest_child(row, column))
                 for column in range(len(self.triangle[row]))
                 ]
-        print self.path_lengths[0][0]
+        print(self.path_lengths[0][0])
 
 
 if __name__ == '__main__':
     try:
         my_tri = NumberTriangle(argv[1])
     except IndexError:
-        print "Error, specify number triangle filename on commandline."
+        print("Error, specify number triangle filename on commandline.")
     else:
         my_tri.find_largest_path()
 

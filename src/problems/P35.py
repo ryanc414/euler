@@ -16,7 +16,7 @@ def main():
 def find_circular_primes():
     circular_primes = set()
     prime_map = prime_sieve(UPPER_LIMIT)
-    for num, is_prime in prime_map.iteritems():
+    for num, is_prime in prime_map.items():
         if is_prime and num not in circular_primes:
             prime_rotations = set()
             for rot in rotations(num):
@@ -32,8 +32,8 @@ def find_circular_primes():
 
 def rotations(n):
     def rotate(digit_list, length):
-        rotation = [None for _ in xrange(length)]
-        for j in xrange(length):
+        rotation = [None for _ in range(length)]
+        for j in range(length):
             if j < length - 1:
                 rotation[j + 1] = digit_list[j]
             else:
@@ -51,7 +51,7 @@ def rotations(n):
 
     n_digits = list(digits(n))[::-1]
     limit = len(n_digits)
-    for i in xrange(limit):
+    for i in range(limit):
         n_digits = rotate(n_digits, limit)
         yield convert_list_to_int(n_digits)
 
@@ -59,4 +59,4 @@ def rotations(n):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())

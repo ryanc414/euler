@@ -14,7 +14,7 @@ def main():
     """
     for term in FibonacciSeries():
         if log10(term.value) + 1 >= MAX_DIGITS:
-            print(term.index)
+            print((term.index))
             break
 
 

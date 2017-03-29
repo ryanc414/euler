@@ -36,4 +36,4 @@ def quadratic(a, b, n):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())

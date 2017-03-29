@@ -40,7 +40,7 @@ def choose_digit_indices(numstr):
             if numstr[i] == digit:
                 found_digits[digit].add(i)
 
-    return (c for indices in found_digits.itervalues()
+    return (c for indices in found_digits.values()
             if len(indices) > 0
             for c in all_combinations(indices))
 
@@ -51,5 +51,5 @@ def all_combinations(elements):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())
 

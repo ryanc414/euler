@@ -27,5 +27,5 @@ def numerator_has_more_digits(frac):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())
 

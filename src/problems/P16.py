@@ -21,4 +21,4 @@ def sum_digits(n):
 
 if __name__ == '__main__':
     n = 1000
-    print sum_digits(exponent(n))
+    print(sum_digits(exponent(n)))

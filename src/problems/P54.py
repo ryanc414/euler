@@ -133,7 +133,7 @@ if __name__ == '__main__':
     try:
         f = open(argv[1], 'r')
     except IndexError:
-        print "Specify filename on command line"
+        print("Specify filename on command line")
     else:
         with f:
             all_hands = f.readlines()
@@ -143,5 +143,5 @@ if __name__ == '__main__':
             if PokerHand(hand[0:14]) >  PokerHand(hand[15:]):
                 count += 1
 
-        print "Player 1 wins {0} hands".format(count)
+        print("Player 1 wins {0} hands".format(count))
             

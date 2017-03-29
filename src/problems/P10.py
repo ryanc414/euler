@@ -11,7 +11,7 @@ def main(N):
 		if is_prime(i):
 			sum += i
 			
-	print "Sum of primes less than {0} is {1}".format(N, sum)
+	print("Sum of primes less than {0} is {1}".format(N, sum))
 	
 if __name__ == '__main__':
 	main(N)

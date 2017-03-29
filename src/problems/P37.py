@@ -23,7 +23,7 @@ def truncatable_primes():
             if n.digits[-1] in DIGIT_PRIMES:
                 if is_truncatable_prime(n):
                     count += 1
-                    print n
+                    print(n)
                     yield n
             n += 1
         else:
@@ -49,5 +49,5 @@ def is_truncatable_prime(n):
            
 
 if __name__ == '__main__':
-    print "Sum of truncatable primes is {0}".format(main())
+    print("Sum of truncatable primes is {0}".format(main()))
 

@@ -14,7 +14,7 @@ def main():
 
     for factor in factors:
         if is_prime(factor):
-            print("Prime factor found! {}".format(factor))
+            print(("Prime factor found! {}".format(factor)))
             prime_factors.add(factor)
 
     return sorted(prime_factors)[-1]
@@ -38,5 +38,5 @@ def find_factors(N):
 
 
 if __name__ == '__main__':
-    print("\nLargest prime factor is {}".format(main()))
+    print(("\nLargest prime factor is {}".format(main())))
 

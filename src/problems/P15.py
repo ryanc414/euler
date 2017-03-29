@@ -23,4 +23,4 @@ def enumerate_paths(n):
 
 if __name__ == '__main__':
     grid_size = 20
-    print enumerate_paths(grid_size)
+    print(enumerate_paths(grid_size))

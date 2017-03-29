@@ -8,7 +8,7 @@ for n > 9.
 from math import factorial
 from P30 import digits
 
-DIGITS = range(10)
+DIGITS = list(range(10))
 
 
 def find_digit_factorials():
@@ -45,10 +45,10 @@ UPPER_LIMIT = find_upper_limit()
 def main():
     """Sum all curious factorials between LOWER_LIMIT and UPPER_LIMIT."""
     sum_digit_factorials = 0
-    for i in xrange(LOWER_LIMIT, UPPER_LIMIT):
+    for i in range(LOWER_LIMIT, UPPER_LIMIT):
         digit_factorial_sum = find_digit_factorial_sum(i)
         if digit_factorial_sum == i:
-            print i
+            print(i)
             sum_digit_factorials += i
     return sum_digit_factorials
 
@@ -59,4 +59,4 @@ def find_digit_factorial_sum(n):
 
 
 if __name__ == '__main__':
-    print "Sum of digit factorials is {0}".format(main())
+    print("Sum of digit factorials is {0}".format(main()))

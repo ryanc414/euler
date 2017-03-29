@@ -54,4 +54,4 @@ def concat_list(nums):
 
 if __name__ == '__main__':
     for res in  main():
-        print res
+        print(res)

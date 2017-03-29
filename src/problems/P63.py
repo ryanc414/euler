@@ -20,7 +20,7 @@ def count_digit_powers():
         x = y ** n
         y += 1
         if x > upper_limit:
-            print "{0}: {1}".format(n, count)
+            print("{0}: {1}".format(n, count))
             if not count:
                 break
             yield count

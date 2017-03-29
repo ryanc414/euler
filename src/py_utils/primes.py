@@ -8,12 +8,12 @@ def prime_sieve(n):
     """Find all primes from 2 to n."""
     prime_bool = {num: True for num in range(2, n)}
     
-    for i in xrange(2, int(sqrt(n) + 1)):
+    for i in range(2, int(sqrt(n) + 1)):
         if prime_bool[i]:
-            for j in xrange(i * i, n + 1, i):
+            for j in range(i * i, n + 1, i):
                 prime_bool[j] = False
 
-    return set(num for (num, prime) in prime_bool.iteritems() if prime)
+    return set(num for (num, prime) in prime_bool.items() if prime)
 
 
 def is_prime(n):

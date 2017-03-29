@@ -10,10 +10,10 @@ def main():
     n = 675
 
     while (not concat_with(n)):
-        print n
+        print(n)
         n += 2
 
-    print sum(OTHER_PRIMES) + n
+    print(sum(OTHER_PRIMES) + n)
 
 
 def concat_with(n):

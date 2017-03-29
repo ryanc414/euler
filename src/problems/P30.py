@@ -53,4 +53,4 @@ def sum_of_power_digits(n, power):
 
 
 if __name__ == '__main__':
-    print main()
+    print(main())
