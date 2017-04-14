@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -O3 -L lib
+CFLAGS = -Wall -O3 -L lib -I src/c_utils
 SRC = $(wildcard src/problems/*.c)
 LIBSRC = $(wildcard src/c_utils/*.c)
 BIN = $(SRC:src/problems/%.c=bin/%)

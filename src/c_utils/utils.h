@@ -31,3 +31,7 @@ void swap_elements(char *, int, int);
 int permute(char *, int);
 int find_next_k(char *, int);
 int find_next_l(char *, int, int);
+
+/* digits.c */
+int is_digit(char);
+
