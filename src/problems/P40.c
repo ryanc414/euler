@@ -1,14 +1,4 @@
-#include <stdio.h>
-
-#define NUM_DIGITS 7 
-#define MAX_NUM_LEN sizeof(long int) * 8 + 1
-
-void fill_digit_nums(long int *);
-void fill_digit_values(char *, long int *);
-char retrieve_digit(long int, long int, long int);
-int number_of_digits(int);
-void print_final_product(char *);
-
+#include <P40.h>
 
 int main()
 {
@@ -35,11 +25,11 @@ void fill_digit_nums(long int *target_array)
 }
 
 
-/* Find the value of the digit numbers (defined in digit_nums) in 
+/* Find the value of the digit numbers (defined in digit_nums) in
  * Champernowne's constant. */
 void fill_digit_values(char *digit_values, long int *digit_nums)
 {
-    long int n, total_digits;     
+    long int n, total_digits;
     int i, next_digits;
 
     for (n = 1, i = 0, next_digits = 1, total_digits = 0; i < NUM_DIGITS; n++) {
@@ -47,14 +37,14 @@ void fill_digit_values(char *digit_values, long int *digit_nums)
             next_digits++;
         total_digits += next_digits;
         if (total_digits  >= digit_nums[i]) {
-            digit_values[i] = 
+            digit_values[i] =
                 retrieve_digit(digit_nums[i], total_digits - next_digits, n);
             i++;
         }
     }
 }
 
-/* Retrieve the digit at position target, for a number that starts after 
+/* Retrieve the digit at position target, for a number that starts after
  * position start. */
 char retrieve_digit(long int target, long int start, long int num)
 {
@@ -69,7 +59,7 @@ char retrieve_digit(long int target, long int start, long int num)
 void print_final_product(char *digit_values)
 {
     int i, final_product;
-    
+
     for (i = 0, final_product = 1; i < NUM_DIGITS; i++)
         final_product *= digit_values[i];
     printf("Product of all target digits: %d\n", final_product);

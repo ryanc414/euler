@@ -1,13 +1,5 @@
 /* P1: Multiples of 3 and 5 */
-
-#include <stdio.h>
-
-#define N_MAX 1000
-#define A 3
-#define B 5
-
-int sum_ntuples(int, int);
-
+#include <P1.h>
 
 /* Print the sum of multiples of 3 or 5 below 1000. */
 int main()

@@ -1,18 +1,9 @@
-#include <stdio.h>
-
-#define P(n) ((n) * (3 * (n) - 1) / 2)
-#define CACHE_SIZE 10000
-
-void fill_p_cache(void);
-int is_pentagonal(long int);
-long int binsearch(size_t, long int *, size_t);
-
-long int p_cache[CACHE_SIZE];
+#include <P44_new.h>
 
 
 int main()
 {
-    long int i, j;
+    int i, j;
 
     fill_p_cache();
 
@@ -20,7 +11,7 @@ int main()
         for (j = 1; j < i; j++)
             if (is_pentagonal(p_cache[i] + p_cache[j]) &&
                 is_pentagonal(p_cache[i] - p_cache[j])) {
-                printf("Smallest D is %ld\n", p_cache[i] - p_cache[j]);
+                printf("Smallest D is %d\n", p_cache[i] - p_cache[j]);
                 return 0;
             }
 
@@ -38,7 +29,7 @@ void fill_p_cache(void)
 
 
 /* is_pentagonal: checks if a given number is pentagonal. */
-int is_pentagonal(long int test)
+int is_pentagonal(int test)
 {
     return binsearch(test, p_cache, CACHE_SIZE) >= 0;
 }

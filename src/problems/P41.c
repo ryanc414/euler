@@ -1,16 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define NUM_DIGITS 9
-
-void fill_digits_reverse(char *, int);
-void permute(char *, int *);
-int find_next_k(char *, int);
-int find_next_l(char *, int, int);
-int is_prime(int);
-void reverse(char *);
-void swap_elements(char *, int, int);
-
+#include <P41.h>
 
 int main()
 {
@@ -19,7 +7,7 @@ int main()
 
     fill_digits_reverse(pandigital, len);
     while (!is_prime(atoi(pandigital)))
-        permute(pandigital, &len);
+        permute_reverse(pandigital, &len);
 
     printf("%s is prime.\n", pandigital);
 
@@ -40,10 +28,10 @@ void fill_digits_reverse(char *a, int start)
 
 /* Permutes a character array a in reverse lexicographic order. The array must
  * be null-terminated. */
-void permute(char *a, int *len)
+void permute_reverse(char *a, int *len)
 {
     int k, l;
-   
+
     k = find_next_k(a, *len);
     if (k < 0)
         fill_digits_reverse(a, --*len);

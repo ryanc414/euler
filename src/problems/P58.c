@@ -1,12 +1,5 @@
-#include <stdio.h>
+#include <P58.h>
 
-#define STEP_SIZE 2
-#define NUM_STEPS 4
-#define TARGET 10
-#define ABOVE_RATIO(PRIMES, TOTAL) (PRIMES) * TARGET >= (TOTAL)
-
-int is_prime(int);
-int find_side_length(void);
 
 int main()
 {
@@ -18,7 +11,7 @@ int main()
 int find_side_length(void)
 {
     int i, n, step, prime_count, total_count;
-    
+
     /* Define sequence start point. */
     n = 1;
     step = 0;

@@ -1,12 +1,15 @@
 #include <utils.h>
 
 
-/* Permutes a character array a in lexicographic order. The array must be 
+int find_next_k(char *, int);
+int find_next_l(char *, int, int);
+
+/* Permutes a character array a in lexicographic order. The array must be
  * null-terminated. Returns 0 if no more permutations exist. */
 int permute(char *a, int len)
 {
     int k, l;
-   
+
     k = find_next_k(a, len);
     if (k < 0)
         return 0;

@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <P46.h>
 
 int is_prime(int n);
 int prime_and_two_sq(int n);
@@ -12,7 +12,7 @@ int main()
         ;
 
     printf("%d violates the conjecture.\n", n);
-    
+
     return 0;
 }
 

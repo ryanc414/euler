@@ -1,15 +1,4 @@
-#include <stdio.h>
-
-#define LIMIT 1000000
-#define IS_PRIME(n) (binsearch((n), primes, num_primes) >= 0)
-
-int max_consec_prime_sum(void);
-int prime_sieve(int **primes, int limit);
-int binsearch(int val, int *array, int lim);
-
-static int *primes;
-static int num_primes;
-
+#include <P50.h>
 
 int main()
 {
@@ -26,7 +15,7 @@ int main()
 int max_consec_prime_sum(void)
 {
     int i, j, sum, max_terms = 0, max_prime = 0;
-    
+
     for (i = 0; i < num_primes; i++) {
         sum = 0;
         for (j = 0; sum < LIMIT && i + j < num_primes; j++) {

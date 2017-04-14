@@ -1,19 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define T(n) n * (n + 1) / 2
-#define N_LIMIT 23 
-#define NUM_WORDS 2000
-#define MAX_WORD 15
-
-void fill_tri_nums(void);
-void read_words(char **);
-int count_tri_nums(char **);
-int is_triangular(char *);
-int word_val(char *);
-int binsearch(int, int *, int);
-
-static int tri_nums[N_LIMIT];
+#include <P42.h>
 
 
 int main()
@@ -66,8 +51,8 @@ void read_words(char **words)
 int count_tri_nums(char **words)
 {
     int tri_word_count = 0;
- 
-    while (*words != NULL) 
+
+    while (*words != NULL)
         if (is_triangular(*words++))
             tri_word_count++;
 
@@ -87,7 +72,7 @@ int is_triangular(char *word)
 int word_val(char *word)
 {
     int value = 0;
-    
+
     while (*word != '\0')
         value += *word++ - 'A' + 1;
 

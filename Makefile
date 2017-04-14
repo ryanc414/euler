@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -O3 -L lib -I src/c_utils
+CFLAGS = -Wall -O3 -L lib -I src/c_utils -I src/problems
 SRC = $(wildcard src/problems/*.c)
 LIBSRC = $(wildcard src/c_utils/*.c)
 BIN = $(SRC:src/problems/%.c=bin/%)
@@ -10,7 +10,7 @@ PY = $(PYSRC:src/problems/%.py=bin/%)
 .PHONY: all clean
 all: lib/libutil.so $(BIN) $(PY)
 
-bin/%: src/problems/%.c lib/libutil.so
+bin/%: src/problems/%.c src/problems/%.h src/problems/problems.h lib/libutil.so
 	$(CC) $(CFLAGS) $< -o $@ $(LDLIBS)
 
 bin/%: src/problems/%.py

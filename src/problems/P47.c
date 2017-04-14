@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-
-#define NUM_FACTORS 4 
-#define LIMIT 1000000l
-
-int num_distinct_prime_factors(long int);
-void prime_sieve(int **primes, int limit);
-
-int **primes;
+#include <P47.h>
 
 
 int main()
@@ -23,7 +14,7 @@ int main()
         else
             ++count;
 
-    printf("First number is: %ld\n", n - NUM_FACTORS); 
+    printf("First number is: %ld\n", n - NUM_FACTORS);
 
     return 0;
 }
