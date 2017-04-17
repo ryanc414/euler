@@ -2,7 +2,7 @@
 
 int main()
 {
-    num_primes = prime_sieve(&primes, LIMIT);
+    primes = prime_sieve(&num_primes, LIMIT);
     printf("%d can be written as the sum of the most primes.\n",
             max_consec_prime_sum());
 

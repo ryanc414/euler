@@ -9,7 +9,7 @@ int main()
     do
         if (substring_divisors(pandigital))
             pandigital_sum += atoin(pandigital, PANDIGITAL_LEN);
-    while (permute(pandigital, PANDIGITAL_LEN));
+    while (permute_lexicographic(pandigital));
 
     printf("The sum of pandigitals that meet the criteria is %ld.\n", pandigital_sum);
 

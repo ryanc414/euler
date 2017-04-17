@@ -5,5 +5,5 @@
 
 int num_distinct_prime_factors(long int);
 
-int **primes;
+unsigned long *primes;
 

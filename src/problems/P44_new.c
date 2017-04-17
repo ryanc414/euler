@@ -3,7 +3,7 @@
 
 int main()
 {
-    int i, j;
+    long i, j;
 
     fill_p_cache();
 
@@ -11,7 +11,7 @@ int main()
         for (j = 1; j < i; j++)
             if (is_pentagonal(p_cache[i] + p_cache[j]) &&
                 is_pentagonal(p_cache[i] - p_cache[j])) {
-                printf("Smallest D is %d\n", p_cache[i] - p_cache[j]);
+                printf("Smallest D is %ld\n", p_cache[i] - p_cache[j]);
                 return 0;
             }
 
@@ -21,7 +21,7 @@ int main()
 
 void fill_p_cache(void)
 {
-    int n;
+    long n;
 
     for (n = 1; n <= CACHE_SIZE; n++)
         p_cache[n - 1] = P(n);
@@ -29,8 +29,8 @@ void fill_p_cache(void)
 
 
 /* is_pentagonal: checks if a given number is pentagonal. */
-int is_pentagonal(int test)
+bool is_pentagonal(long test)
 {
-    return binsearch(test, p_cache, CACHE_SIZE) >= 0;
+    return binsearch(test, p_cache, CACHE_SIZE) != CACHE_SIZE;
 }
 

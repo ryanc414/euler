@@ -7,6 +7,5 @@
 #define TARGET 10
 #define ABOVE_RATIO(PRIMES, TOTAL) (PRIMES) * TARGET >= (TOTAL)
 
-int is_prime(int);
 int find_side_length(void);
 

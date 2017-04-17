@@ -6,7 +6,6 @@
 #define SUBSTR_NO_DIVISOR(substr, divisor) \
     (atoin((substr), (SUBSTR_LEN)) % (divisor))
 
-int permute(char *, int);
 int substring_divisors(char *);
 long int atoin(char *, int);
 

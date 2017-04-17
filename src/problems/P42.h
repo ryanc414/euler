@@ -7,10 +7,9 @@
 
 void fill_tri_nums(void);
 void read_words(char **);
-int count_tri_nums(char **);
-int is_triangular(char *);
-int word_val(char *);
-int binsearch(int, int *, int);
+unsigned int count_tri_nums(char **);
+bool is_triangular(char *);
+long word_val(char *);
 
-static int tri_nums[N_LIMIT];
+static long tri_nums[N_LIMIT];
 

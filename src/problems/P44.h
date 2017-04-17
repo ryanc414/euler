@@ -4,9 +4,9 @@
 #define CACHE_SIZE 1000000
 
 void fill_p_cache(void);
-int is_smallest_difference(int);
-int is_pentagonal(int);
-void reset_to_next_upper(int *, int *, int *);
+bool is_smallest_difference(long);
+bool is_pentagonal(long);
+void reset_to_next_upper(long *, long *, long *);
 
-int p_cache[CACHE_SIZE];
+long p_cache[CACHE_SIZE];
 
