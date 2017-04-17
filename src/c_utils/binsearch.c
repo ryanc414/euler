@@ -1,8 +1,8 @@
 #include <utils.h>
 
-int binsearch(int val, int *array, int lim)
+size_t binsearch(long val, long *array, size_t lim)
 {
-    unsigned int low, high, mid;
+    size_t low, high, mid;
 
     low = 0;
     high = lim - 1;
@@ -16,6 +16,6 @@ int binsearch(int val, int *array, int lim)
     if (array[low] == val)
         return low;
     else
-        return -1;  /* no match */
+        return lim;  /* no match */
 }
 

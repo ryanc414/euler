@@ -1,29 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
+#include <assert.h>
+#include <string.h>
 
+/* Macros for swapping elements of type t. */
 #define SWAP(t, x, y) t tmp = (y); (y) = (x); (x) = tmp;
+#define SWAP_ARRAY(t, a, i, j) t tmp = a[j]; a[j] = a[i]; a[i] = tmp;
 
 /* binsearch.c */
-int binsearch(int, int *, int);
-
-/* heap.c */
-void generate(int, char *);
-void swap(char *, int, int);
-void print_array(char *A);
+size_t binsearch(long val, long *array, size_t lim);
 
 /* permute.c */
-int permute(char *, int);
+bool permute_lexicographic(char *a);
+bool permute_reverse_lexicographic(char *a);
 
 /* primes.c */
-int is_prime(int);
-int prime_sieve(int **, int);
+bool is_prime(unsigned long n);
+unsigned long *prime_sieve(unsigned long *num_primes, unsigned long limit);
 
 /* reverse.c */
-void reverse(char *);
-void swap_and_inc(char *, int, int);
-void swap_elements(char *, int, int);
+void reverse(char *s);
 
 /* digits.c */
-int is_digit(char);
+bool is_digit(char digit);
 
