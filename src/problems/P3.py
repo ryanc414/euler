@@ -5,7 +5,7 @@ from math import sqrt
 from primes import is_prime
 
 N = 600851475143
-prime_factors = set() 
+prime_factors = set()
 
 
 def main():
@@ -14,7 +14,6 @@ def main():
 
     for factor in factors:
         if is_prime(factor):
-            print(("Prime factor found! {}".format(factor)))
             prime_factors.add(factor)
 
     return sorted(prime_factors)[-1]
@@ -30,7 +29,7 @@ def find_factors(N):
     for i in range(2, limit):
         if (N % i) == 0:
             factors.add(i)
-    
+
     for factor in factors:
         counter_factors.add(int(N / factor))
 

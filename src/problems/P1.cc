@@ -11,13 +11,13 @@ int Sum_ntuples(int n1, int n2)
   for (int i = 1; i < N_Max; i++)
     {
       if (i % n1 == 0)
-	{
-	  Sum += i;
-	}
+    {
+      Sum += i;
+    }
       else if (i % n2 == 0)
-	{
-	  Sum += i;
-	}
+    {
+      Sum += i;
+    }
     }
 
   return Sum;

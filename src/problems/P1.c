@@ -18,8 +18,8 @@ int sum_ntuples(int x, int y)
 
     for (i = 1; i < N_MAX; i++) {
         if (i % x == 0 || i % y == 0) {
-	        sum += i;
-	    }
+            sum += i;
+        }
     }
 
   return sum;
