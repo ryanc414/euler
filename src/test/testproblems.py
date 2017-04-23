@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 
-import  unittest
+import unittest
 from subprocess import Popen, PIPE
+from collections import namedtuple
+from time import sleep
 
 
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
     NUM_TESTS = 10
+    NUM_WORKERS = 2
+    POLL_TIME = 0.1
 
     # Shell commands to run the tests.
     COMMANDS = [['./bin/P{}'.format(i + 1)] for i in range(NUM_TESTS)]
@@ -28,24 +32,56 @@ class TestProblems(unittest.TestCase):
         "Sum of primes less than 2000000 is 142913828922"
         ]
 
-    def syscall(self, cmd):
-        """Make a sys call and return the stdout."""
-        process = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        (stdout, stderr) = process.communicate()
-        self.assertFalse(stderr, stderr)
-        return stdout.strip().decode('ascii')
+    TEST = namedtuple("Test", ["process", "index"])
 
-    def run_test(self, n):
-        """Run a single command and check that the stdout matches the expected
-        result."""
-        self.assertEqual(self.syscall(self.COMMANDS[n]),
-                         self.EXPCT_RESULTS[n])
-        print("Test {} passed".format(n + 1))
+    def setUp(self):
+        """Sanity check that the tests have been set up correctly."""
+        assert len(self.EXPCT_RESULTS) == self.NUM_TESTS
+        self.tests = []
+        self.next_test = 0
+
+    def check_test(self, test):
+        """Check whether the test has passed by comparing its stdout to what
+        is expected."""
+        (stdout, stderr) = test.process.communicate()
+        self.assertFalse(stderr, stderr)
+        stdout = stdout.strip().decode('ascii')
+        self.assertEqual(stdout, self.EXPCT_RESULTS[test.index])
+        print("Test {} passed".format(test.index + 1))
+
+    def start_tests(self):
+        """Start initial tests."""
+        for _ in range(self.NUM_WORKERS):
+            self.tests.append(
+                self.TEST(
+                    process=Popen(self.COMMANDS[self.next_test],
+                                  stdout=PIPE,
+                                  stderr=PIPE),
+                    index=self.next_test))
+            self.next_test += 1
+
+    def poll_tests(self):
+        """Poll tests for completion. When one finishes, start another one if
+        there are more to run. Stop when all are finished."""
+        for i, test in enumerate(self.tests):
+            if test.process.poll() is not None:
+                self.check_test(test)
+                self.tests.pop(i)
+                if self.next_test < self.NUM_TESTS:
+                    self.tests.append(
+                        self.TEST(
+                            process=Popen(self.COMMANDS[self.next_test],
+                                          stdout=PIPE,
+                                          stderr=PIPE),
+                            index=self.next_test))
+                    self.next_test += 1
 
     def test_all(self):
         """Run all tests."""
-        for i in range(self.NUM_TESTS):
-            self.run_test(i)
+        self.start_tests()
+        while self.tests:
+            self.poll_tests()
+            sleep(self.POLL_TIME)
 
 
 if __name__ == '__main__':
