@@ -15,7 +15,7 @@ class Divisors(object):
             if self.n % i == 0:
                 yield i
                 if i != limit and i != 1:
-                    yield self.n / i
+                    yield int(self.n / i)
 
 
 def sum_of_divisors(n):

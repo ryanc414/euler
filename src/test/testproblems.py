@@ -8,7 +8,8 @@ from time import sleep
 
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
-    NUM_TESTS = 20
+    # Test parameters
+    NUM_TESTS = 30
     NUM_WORKERS = 2
     POLL_TIME = 0.1
 
@@ -20,6 +21,7 @@ class TestProblems(unittest.TestCase):
     COMMANDS[10].append("data/P11_grid.txt")
     COMMANDS[12].append("data/P13_numbers.txt")
     COMMANDS[17].append("data/P18_triangle.txt")
+    COMMANDS[21].append("data/p022_names.txt")
 
     # Expected stdout of each command
     EXPCT_RESULTS = [
@@ -42,7 +44,17 @@ class TestProblems(unittest.TestCase):
         "Total number of letters is 21124",
         "1074",
         "171",
-        "648"
+        "648",
+        "31626",
+        "871198282",
+        "4179871",
+        "2783915460",
+        "4782",
+        "983",
+        "-59231",
+        "669171001",
+        "9183",
+        "443839"
     ]
 
     TEST = namedtuple("Test", ["process", "index"])
@@ -59,7 +71,8 @@ class TestProblems(unittest.TestCase):
         (stdout, stderr) = test.process.communicate()
         self.assertFalse(stderr, stderr)
         stdout = stdout.strip().decode('ascii')
-        self.assertEqual(stdout, self.EXPCT_RESULTS[test.index])
+        self.assertEqual(stdout, self.EXPCT_RESULTS[test.index],
+                         "Test {} failed".format(test.index + 1))
         print("Test {} passed".format(test.index + 1))
 
     def start_tests(self):

@@ -20,15 +20,28 @@ def main():
 
 def cycle_length(d):
     """Returns cycle length for decimal 1/d"""
-    length = len(str(Decimal(1) / Decimal(d)))
-    if length < PREC:
+    remainder = 1
+
+    # Check for terminating decimal
+    for i in range(d):
+        remainder = (remainder * 10) % d
+
+    if remainder == 0:
         return 0
 
-    for p in range(1, d_MAX):
-        n = int(10 ** p) - 1 % d
-        if n % d == 0:
-            return int(log10(n / d)) + 1
+    # We know the decimal doesn't terminate. Store the current remainder
+    # and count how many steps it takes to repeat.
+    remainder_0 = remainder
+    remainder = (remainder * 10) % d
+    cycle_len = 1
+
+    while remainder != remainder_0:
+        cycle_len += 1
+        remainder = (remainder * 10) % d
+
+    return cycle_len
 
 
 if __name__ == '__main__':
     print(main())
+

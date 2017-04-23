@@ -42,7 +42,7 @@ def main():
 def digits(n):
     while n:
         yield n % 10
-        n /= 10
+        n //= 10
 
 
 def sum_of_power_digits(n, power):
@@ -54,3 +54,4 @@ def sum_of_power_digits(n, power):
 
 if __name__ == '__main__':
     print(main())
+

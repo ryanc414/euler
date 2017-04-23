@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Quadratic Primes"""
-from tools.primes import is_prime
+from primes import is_prime
 
 MAX = 1000
 
@@ -19,7 +19,7 @@ def main():
                 max_primes = num_primes
                 max_a = a
                 max_b = b
-    return max_a, max_b, max_a * max_b
+    return max_a * max_b
 
 
 def number_of_primes(a, b):
