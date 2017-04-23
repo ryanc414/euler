@@ -12,11 +12,35 @@ class Date(object):
         self.month = month
         self.year = year
 
-    def __cmp__(self, other):
-        return (cmp(self.year, other.year) or
-                cmp(self.month, other.month) or
-                cmp(self.day, other.day))
+    def __lt__(self, other):
+        if self.year < other.year:
+            return True
+        if self.year == other.year:
+            if self.month < other.month:
+                return True
+            if self.month == other.month:
+                if self.day < other.day:
+                    return True
+        return False
 
+    def __eq__(self, other):
+        return ((self.year == other.year) and
+                (self.month == other.month) and
+                (self.day == other.day))
+
+    def __gt__(self, other):
+        if self.year < other.year:
+            return True
+        if self.year == other.year:
+            if self.month < other.month:
+                return True
+            if self.month == other.month:
+                if self.day < other.day:
+                    return True
+        return False
+
+    def __str__(self):
+        return "{0}/{1}/{2}".format(self.day, self.month, self.year)
 
 class FirstOfMonths(object):
     """
@@ -43,8 +67,11 @@ class FirstOfMonths(object):
         start_date and end_date. Yields the day number.
         """
         while self.date < self.end_date:
-            self.increment_month()
             yield self.day_num
+            self.increment_month()
+
+    def __str__(self):
+        return str(self.date)
 
     def get_starting_day(self):
         """
@@ -104,8 +131,11 @@ if __name__ == '__main__':
 
     # iterate through each first-of-month day, incrementing sunday_count
     # if the day is a sunday
-    for day in FirstOfMonths(start_date, end_date):
+    firstofmonths = FirstOfMonths(start_date, end_date)
+    for day in firstofmonths:
+        assert firstofmonths.date < end_date
         if day == SUNDAY:
             sunday_count += 1
 
     print(sunday_count)
+

@@ -11,7 +11,7 @@ def n_choose_k(n, k):
     nCk = n! / (k!(n-k)!)
     """
     result = math.factorial(n) / (math.factorial(k) * math.factorial(n - k))
-    return result
+    return int(result)
 
 
 def enumerate_paths(n):

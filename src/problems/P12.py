@@ -3,16 +3,24 @@
 Highly divisible triangle numbers
 """
 
+from itertools import count
+from math import sqrt
+
+TARGET_DIVISORS = 500
+
+
 def find_num_divisors(n):
     """
     Finds the number of divisors of an integer n
     """
+    assert n >= 0
     if n <= 1:
         return n
     num_divisors = 1
     i = 2
     count = 0
-    limit = n ** 0.5
+    limit = int(sqrt(n))
+
     while True:
         if i > limit:
             if i != n:
@@ -43,23 +51,18 @@ def main():
     Finds first triangle number to have more than the target number
     of divisors.
     """
-    N = int(1e6)
-    target_divisors = 500
     n = 0
 
-    for i in range(1, N+1):
-        num_divisors = find_num_divisors(n)
+    for i in count(1):
         n += i
-        if num_divisors > target_divisors:
-            print(("First triangle number to have over {3} divisors:"
+        num_divisors = find_num_divisors(n)
+        if num_divisors > TARGET_DIVISORS:
+            print("First triangle number to have over {3} divisors:"
                   " {0}th number is {1} and has {2} divisors.".format(
-                i, n, num_divisors, target_divisors
-            )
-                   ))
+                      i, n, num_divisors, TARGET_DIVISORS))
             break
-    else:
-        print("FAIL: maybe make N bigger?")
 
 
 if __name__ == '__main__':
     main()
+

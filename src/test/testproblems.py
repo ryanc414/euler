@@ -8,7 +8,7 @@ from time import sleep
 
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
-    NUM_TESTS = 10
+    NUM_TESTS = 20
     NUM_WORKERS = 2
     POLL_TIME = 0.1
 
@@ -16,7 +16,10 @@ class TestProblems(unittest.TestCase):
     COMMANDS = [['./bin/P{}'.format(i + 1)] for i in range(NUM_TESTS)]
 
     # Append any extra args required e.g. to specify input files
-    COMMANDS[7].append('data/P8_bignum.txt')
+    COMMANDS[7].append("data/P8_bignum.txt")
+    COMMANDS[10].append("data/P11_grid.txt")
+    COMMANDS[12].append("data/P13_numbers.txt")
+    COMMANDS[17].append("data/P18_triangle.txt")
 
     # Expected stdout of each command
     EXPCT_RESULTS = [
@@ -29,8 +32,18 @@ class TestProblems(unittest.TestCase):
         "10,001st prime: 104743",
         "Largest product of 13 adjacent digits is 23514624000.",
         "a = 200, b = 375, c = 425\nProduct abc = 31875000",
-        "Sum of primes less than 2000000 is 142913828922"
-        ]
+        "Sum of primes less than 2000000 is 142913828922",
+        "Max product is: 70600674",
+        "First triangle number to have over 500 divisors: 12375th number is 76576500 and has 576 divisors.",
+        "5537376230",
+        "Longest starter was 837799",
+        "137846528820",
+        "1366",
+        "Total number of letters is 21124",
+        "1074",
+        "171",
+        "648"
+    ]
 
     TEST = namedtuple("Test", ["process", "index"])
 
