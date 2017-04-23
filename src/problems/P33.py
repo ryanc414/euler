@@ -37,7 +37,6 @@ def find_all_cancelling_fractions():
             if x != y and x % 10 != 0 and y % 10 != 0:
                 cancelling_fraction = check_for_cancelled_fraction(x, y)
                 if cancelling_fraction is not None:
-                    print(cancelling_fraction)
                     fractions.add(cancelling_fraction)
     return fractions
 
@@ -91,8 +90,8 @@ class Fraction(object):
         i = self.x
         while i >= 2:
             if self.x % i == 0 and self.y % i == 0:
-                self.x /= i
-                self.y /= i
+                self.x //= i
+                self.y //= i
             else:
                 i -= 1
 
@@ -109,5 +108,10 @@ class Fraction(object):
     def __str__(self):
         return "{0} / {1}".format(self.x, self.y)
 
+    def __hash__(self):
+        return hash(Decimal(self.x) / Decimal(self.y))
+
+
 if __name__ == '__main__':
     print(main())
+

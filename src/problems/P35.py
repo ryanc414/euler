@@ -3,7 +3,7 @@
 Circular Primes
 """
 from P30 import digits
-from tools.primes import prime_sieve
+from primes import prime_sieve
 
 UPPER_LIMIT = int(1e6)
 
@@ -15,12 +15,12 @@ def main():
 
 def find_circular_primes():
     circular_primes = set()
-    prime_map = prime_sieve(UPPER_LIMIT)
-    for num, is_prime in prime_map.items():
-        if is_prime and num not in circular_primes:
+    primes = prime_sieve(UPPER_LIMIT)
+    for num in primes:
+        if num not in circular_primes:
             prime_rotations = set()
             for rot in rotations(num):
-                if not prime_map[rot]:
+                if rot not in primes:
                     break
                 else:
                     prime_rotations.add(rot)

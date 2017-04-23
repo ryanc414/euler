@@ -52,7 +52,7 @@ def digit_pairs():
 def generate_integers(length=1):
     """Generates all integers of a given length."""
     upper_limit = 10 ** length
-    lower_limit = upper_limit / 10
+    lower_limit = upper_limit // 10
     return range(lower_limit, upper_limit)
 
 
@@ -66,3 +66,4 @@ def is_pandigital(x, y, product):
 
 if __name__ == '__main__':
     print("Sum of pandigital products is {0}".format(main()))
+

@@ -48,7 +48,6 @@ def main():
     for i in range(LOWER_LIMIT, UPPER_LIMIT):
         digit_factorial_sum = find_digit_factorial_sum(i)
         if digit_factorial_sum == i:
-            print(i)
             sum_digit_factorials += i
     return sum_digit_factorials
 
@@ -60,3 +59,4 @@ def find_digit_factorial_sum(n):
 
 if __name__ == '__main__':
     print("Sum of digit factorials is {0}".format(main()))
+
