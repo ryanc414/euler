@@ -10,6 +10,7 @@ int test_reverse(void);
 int test_is_prime(void);
 int test_prime_sieve(void);
 int test_is_digit(void);
+int test_is_pandigital(void);
 
 
 /* Run all tests for the utils library. */
@@ -22,6 +23,7 @@ int main(void)
     test_is_prime();
     test_prime_sieve();
     test_is_digit();
+    test_is_pandigital();
 
     printf("\nAll tests passed\n\n");
     return 0;
@@ -151,6 +153,7 @@ int test_prime_sieve(void)
     return 0;
 }
 
+/* Tests for digits.c module */
 
 /* Test the is_digit function. */
 int test_is_digit(void)
@@ -165,6 +168,51 @@ int test_is_digit(void)
     assert(!is_digit('m'));
 
     printf("test_is_digit passed.\n");
+
+    return 0;
+}
+
+
+/* Test the num_digits function. */
+int test_num_digits(void)
+{
+    assert(num_digits(0) == 0);
+    assert(num_digits(1) == 1);
+    assert(num_digits(12) == 2);
+    assert(num_digits(987654321) == 9);
+
+    printf("test_is_digit passed.\n");
+
+    return 0;
+}
+
+
+/* Test the concat_uint32 function. */
+int test_concat_uint32(void)
+{
+    uint32_t x = 123;
+    uint32_t y = 456;
+
+    assert(concat_uint32(x, y) == 123456);
+
+    printf("test_is_digit passed.\n");
+
+    return 0;
+}
+
+
+/* Test the is_pandigital function. */
+int test_is_pandigital(void)
+{
+    assert(is_pandigital(1, 1));
+    assert(is_pandigital(123, 3));
+    assert(is_pandigital(918273645, 9));
+    assert(!is_pandigital(111, 3));
+    assert(!is_pandigital(998765432, 9));
+    assert(!is_pandigital(1234, 3));
+    assert(!is_pandigital(321, 6));
+
+    printf("test_is_pandigital passed.\n");
 
     return 0;
 }

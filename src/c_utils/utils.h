@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <string.h>
+#include <inttypes.h>
+
 
 /* Macros for swapping elements of type t. */
 #define SWAP(t, x, y) t tmp = (y); (y) = (x); (x) = tmp;
@@ -25,4 +27,7 @@ void reverse(char *s);
 
 /* digits.c */
 bool is_digit(char digit);
+uint8_t num_digits(uint32_t x);
+uint64_t concat_uint32(uint32_t x, uint32_t y);
+bool is_pandigital(uint32_t x, uint8_t n);
 
