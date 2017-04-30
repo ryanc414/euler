@@ -9,7 +9,7 @@ from time import sleep
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
     # Test parameters
-    NUM_TESTS = 38
+    NUM_TESTS = 40
     NUM_WORKERS = 2
     POLL_TIME = 0.1
 
@@ -62,7 +62,9 @@ class TestProblems(unittest.TestCase):
         "55",
         "872187",
         "Sum of truncatable primes is 748317",
-        "Largest 1 to 9 pandigital formed is: 932718654"
+        "Largest 1 to 9 pandigital formed is: 932718654",
+        "Max solutions for p = 840",
+        "Product of all target digits: 210"
     ]
 
     TEST = namedtuple("Test", ["process", "index"])
