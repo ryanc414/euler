@@ -3,7 +3,9 @@
 
 int main()
 {
-    long int n = N_INIT, t;
+    long int n, t;
+
+    n = N_INIT;
 
     while (!(is_pentagonal(t = T(n)) && is_hexagonal(t)))
         n++;

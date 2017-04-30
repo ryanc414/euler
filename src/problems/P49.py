@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-#!/usr/bin/python
 
-from itertools import permutations 
-from tools.primes import prime_sieve
+from itertools import permutations
+from primes import prime_sieve
 
-NUM_DIGITS = 4 
+NUM_DIGITS = 4
 NUM_TERMS = 3
 
 
@@ -12,7 +11,7 @@ def main():
     results = set()
     for prime_permutations in PermutePrimes(NUM_DIGITS):
         if len(prime_permutations) >= NUM_TERMS:
-            for p in (sorted(perm) for perm in 
+            for p in (sorted(perm) for perm in
                     permutations(prime_permutations, NUM_TERMS)):
                 if arith_seq_exists(p):
                     results.add(concat_list(p))
@@ -21,7 +20,7 @@ def main():
 
 class PermutePrimes(object):
     def __init__(self, digits):
-        self.primes = set(prime for prime in prime_sieve(pow(10, digits)) 
+        self.primes = set(prime for prime in prime_sieve(pow(10, digits))
                           if prime > pow(10, digits - 1))
 
     def __iter__(self):
@@ -53,5 +52,6 @@ def concat_list(nums):
 
 
 if __name__ == '__main__':
-    for res in  main():
+    for res in main():
         print(res)
+

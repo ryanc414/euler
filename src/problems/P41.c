@@ -10,7 +10,7 @@ int main()
         if (!permute_reverse_lexicographic(pandigital))
             fill_digits_reverse(pandigital, --len);
 
-    printf("%s is prime.\n", pandigital);
+    printf("%s is prime\n", pandigital);
 
     return 0;
 }

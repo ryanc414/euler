@@ -1,12 +1,18 @@
 #include <P42.h>
 
 
-int main()
+int main(int argc, char *argv[])
 {
     char *words[NUM_WORDS];
 
+    if (argc < 2) {
+        printf("Usage: ./P42 [input filename]\n");
+        return 1;
+    }
+
     fill_tri_nums();
-    read_words(words);
+    if (!read_words(words, argv[1]))
+        return 2;
 
     printf("There are %u triangular words.\n", count_tri_nums(words));
 
@@ -27,14 +33,22 @@ void fill_tri_nums(void)
 
 /* read_words: read words from file, store in array. The words are enclosed
  * in double-quotes and seperated by commas.*/
-void read_words(char **words)
+bool read_words(char **words, char *filename)
 {
     char c;
     int i = 0;
+    FILE *fp;
+
+    fp = fopen(filename, "r");
+
+    if (fp == NULL) {
+        printf("Error, could not open file %s\n", filename);
+        return false;
+    }
 
     *words = malloc(MAX_WORD + 1);
 
-    while ((c = getchar()) != EOF)
+    while ((c = fgetc(fp)) != EOF)
         if (c == ',') {
             (*words)[i] = '\0';
             *++words = malloc(MAX_WORD + 1);
@@ -43,6 +57,8 @@ void read_words(char **words)
             (*words)[i++] = c;
     /* Add a null pointer to terminate the array. */
     *++words = NULL;
+
+    return true;
 }
 
 

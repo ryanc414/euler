@@ -53,7 +53,6 @@ def main(filename):
         with f:
             encrypted_msg = [int(c) for c in f.read().split(',')]
         msg = guess_decryption(encrypted_msg)
-        print(''.join(chr(c) for c in msg))
         return sum(msg)
 
 

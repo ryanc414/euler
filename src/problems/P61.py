@@ -1,11 +1,11 @@
 #!/usr/bin/env python
-"""P71 - find an ordered set of 6 4-digit numbers that are cyclic (last and
+"""P61 - find an ordered set of 6 4-digit numbers that are cyclic (last and
 first two digits of neighbouring numbers overlap) and contain one each of
 triangle, square, pentagonal, hexagonal, heptagonal and octagonal numbers
 in no particular order."""
 
 from collections import deque
-from P60 import SetFound
+from tree import Found
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
 
 
 def triangle(n):
-    return n * (n + 1) / 2
+    return n * (n + 1) // 2
 
 
 def square(n):
@@ -23,7 +23,7 @@ def square(n):
 
 
 def pentagonal(n):
-    return n * (3 * n - 1) / 2
+    return n * (3 * n - 1) // 2
 
 
 def hexagonal(n):
@@ -31,7 +31,7 @@ def hexagonal(n):
 
 
 def heptagonal(n):
-    return n * (5 * n - 3) / 2
+    return n * (5 * n - 3) // 2
 
 
 def octagonal(n):
@@ -67,20 +67,20 @@ def find_lowest_set():
                     if len(remaining_series) > 0:
                         find_next_element(curr_elements, remaining_series)
                     elif is_cyclic(curr_elements[-1], curr_elements[0]):
-                        raise SetFound()
+                        raise Found()
 
                     # If we get here, it means that no valid sets were found.
                     # Reset and continue looking at this level.
                     curr_elements.pop()
                     remaining_series.add(series)
-                
+
                 if is_cyclic(n, curr_elements[0]):
                     curr_elements.appendleft(n)
                     remaining_series.remove(series)
                     if len(remaining_series) > 0:
                         find_next_element(curr_elements, remaining_series)
                     elif is_cyclic(curr_elements[-1], curr_elements[0]):
-                        raise SetFound()
+                        raise Found()
 
                     # If we get here, it means that no valid sets were found.
                     # Reset and continue looking at this level.
@@ -93,7 +93,7 @@ def find_lowest_set():
         for n in iter_series(triangle):
             cyclic_set = deque([n])
             find_next_element(cyclic_set, test_series)
-    except SetFound:
+    except Found:
         return cyclic_set
     else:
         raise Exception("No valid set found.")

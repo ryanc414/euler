@@ -32,25 +32,25 @@ class PokerHand(object):
             if possible():
                 self.hand_value = i
                 break
-   
-    def __cmp__(self, other):
+
+    def __gt__(self, other):
         """Compare two poker hands. Returns a positive value if self wins,
         a negative value if other wins, and 0 if the hands are equal."""
         if self.hand_value != other.hand_value:
-            return other.hand_value - self.hand_value
+            return other.hand_value > self.hand_value
         else:
             for val, otherval in zip(self.specific_values, other.specific_values):
                 if val != otherval:
-                    return val - otherval
+                    return val > otherval
             for card, othercard in zip(self.cards[::-1], other.cards[::-1]):
                 if card != othercard:
-                    return card.value - othercard.value
-        return 0
+                    return card.value > othercard.value
+        return False
 
     # The following methods check for specific types of hand.
     def _straight_flush(self):
         return self._flush() and self._straight()
-        
+
     def _four_of_a_kind(self):
         return self._n_matching(4)
 
@@ -74,7 +74,7 @@ class PokerHand(object):
                 return False
         self.specific_values.append(self.cards[-1].value)
         return True
-    
+
     def _three_of_a_kind(self):
         return self._n_matching(3)
 
@@ -92,7 +92,7 @@ class PokerHand(object):
         if num_pairs == 2:
             return True
         return False
-    
+
     def _pair(self):
         return self._n_matching(2)
 
@@ -144,4 +144,4 @@ if __name__ == '__main__':
                 count += 1
 
         print("Player 1 wins {0} hands".format(count))
-            
+

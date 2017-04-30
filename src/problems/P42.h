@@ -6,7 +6,7 @@
 #define MAX_WORD 15
 
 void fill_tri_nums(void);
-void read_words(char **);
+bool read_words(char **words, char *filename);
 unsigned int count_tri_nums(char **);
 bool is_triangular(char *);
 long word_val(char *);

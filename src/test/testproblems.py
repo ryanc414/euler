@@ -9,7 +9,7 @@ from time import sleep
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
     # Test parameters
-    NUM_TESTS = 40
+    NUM_TESTS = 64
     NUM_WORKERS = 2
     POLL_TIME = 0.1
 
@@ -22,6 +22,9 @@ class TestProblems(unittest.TestCase):
     COMMANDS[12].append("data/P13_numbers.txt")
     COMMANDS[17].append("data/P18_triangle.txt")
     COMMANDS[21].append("data/p022_names.txt")
+    COMMANDS[41].append("data/p042_words.txt")
+    COMMANDS[53].append("data/p054_poker.txt")
+    COMMANDS[58].append("data/p059_cipher.txt")
 
     # Expected stdout of each command
     EXPCT_RESULTS = [
@@ -64,7 +67,32 @@ class TestProblems(unittest.TestCase):
         "Sum of truncatable primes is 748317",
         "Largest 1 to 9 pandigital formed is: 932718654",
         "Max solutions for p = 840",
-        "Product of all target digits: 210"
+        "Product of all target digits: 210",
+        "7652413 is prime",
+        "There are 162 triangular words.",
+        "The sum of pandigitals that meet the criteria is 16695334890",
+        "Smallest D is 5482660",
+        "1533776805 is triangular, pentagonal and hexagonal.",
+        "5777 violates the conjecture.",
+        "First number is: 134043",
+        "9110846700",
+        "148748178147\n296962999629",
+        "997651 can be written as the sum of the most primes.",
+        "('121313', (0, 2, 4))",
+        "142857",
+        "4075",
+        "Player 1 wins 376 hands",
+        "249",
+        "972",
+        "153",
+        "Side length: 26241",
+        "107359",
+        "[13, 5197, 5701, 6733, 8389]\nSum of lowest set: 26033",
+        "deque([8256, 5625, 2512, 1281, 8128, 2882])\nSum of lowest set: 28684",
+        "Set found: {589323567104, 569310543872, 373559126408, 352045367981, 127035954683}\n"
+        "Lowest member of set is: 127035954683",
+        "Sum: 49",
+        "1322"
     ]
 
     TEST = namedtuple("Test", ["process", "index"])

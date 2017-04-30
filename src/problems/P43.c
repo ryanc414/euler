@@ -11,7 +11,7 @@ int main()
             pandigital_sum += atoin(pandigital, PANDIGITAL_LEN);
     while (permute_lexicographic(pandigital));
 
-    printf("The sum of pandigitals that meet the criteria is %ld.\n", pandigital_sum);
+    printf("The sum of pandigitals that meet the criteria is %ld\n", pandigital_sum);
 
     return 0;
 }
