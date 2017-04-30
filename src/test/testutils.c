@@ -124,6 +124,7 @@ int test_is_prime(void)
     /* Check a couple of larger numbers. */
     assert(!is_prime(49));
     assert(is_prime(97));
+    assert(is_prime(7652413));
 
     printf("test_is_prime passed\n");
 
