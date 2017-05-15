@@ -34,7 +34,7 @@ int main(void)
 int test_binsearch(void)
 {
     size_t len = 5;
-    long test_arr[len];
+    uint32_t test_arr[len];
     size_t i;
 
     /* Fill the test array with values corresponding to indices. */
@@ -43,11 +43,13 @@ int test_binsearch(void)
 
     /* Check that we can find all values in the test array. */
     for (i = 0; i < len; i++)
-        assert(binsearch(i, test_arr, len) == i);
+        assert(*(uint32_t *)
+                bsearch(&i, test_arr, len, sizeof(uint32_t), comp_uint32) ==
+                i);
 
     /* Test that searching for a value not in the array returns the length   *
      * of the array to signify the value could not be found. */
-    assert(binsearch(len, test_arr, len) == len);
+    assert(bsearch(&i, test_arr, len, sizeof(uint32_t), comp_uint32) == NULL);
 
     printf("test_binsearch passed\n");
 

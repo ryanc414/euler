@@ -7,9 +7,9 @@
 
 void fill_tri_nums(void);
 bool read_words(char **words, char *filename);
-unsigned int count_tri_nums(char **);
+uint32_t count_tri_nums(char **);
 bool is_triangular(char *);
-long word_val(char *);
+uint32_t word_val(char *);
 
-static long tri_nums[N_LIMIT];
+static uint32_t tri_nums[N_LIMIT];
 

@@ -6,6 +6,6 @@
 #define CACHE_SIZE 10000
 
 void fill_p_cache(void);
-bool is_pentagonal(long);
+bool is_pentagonal(uint32_t);
 
-long p_cache[CACHE_SIZE];
+uint32_t p_cache[CACHE_SIZE];

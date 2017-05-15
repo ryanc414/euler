@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
  * an array so we can look them up later. */
 void fill_tri_nums(void)
 {
-    long n;
+    uint32_t n;
 
     for (n = 1; n <= N_LIMIT; n++)
         tri_nums[n - 1] = T(n);
@@ -64,9 +64,9 @@ bool read_words(char **words, char *filename)
 
 /* count_tri_nums: for each word, calculate its value and check if it is
  * triangular. Return the number of triangular words. */
-unsigned int count_tri_nums(char **words)
+uint32_t count_tri_nums(char **words)
 {
-    unsigned int tri_word_count = 0;
+    uint32_t tri_word_count = 0;
 
     while (*words != NULL)
         if (is_triangular(*words++))
@@ -79,15 +79,16 @@ unsigned int count_tri_nums(char **words)
 /* is_triangular: returns 1 if a given word is triangular, 0 otherwise. */
 bool is_triangular(char *word)
 {
-    return binsearch(word_val(word), tri_nums, N_LIMIT) != N_LIMIT;
+    uint32_t val = word_val(word);
+    return bsearch(&val, tri_nums, N_LIMIT, sizeof(uint32_t), comp_uint32) != NULL;
 }
 
 
 /* word_val: calculates the numerical value of a word, according to the sum
  * of its letter values. */
-long word_val(char *word)
+uint32_t word_val(char *word)
 {
-    long value = 0;
+    uint32_t value = 0;
 
     while (*word != '\0')
         value += *word++ - 'A' + 1;

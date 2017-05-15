@@ -11,9 +11,6 @@
 #define SWAP(t, x, y) t tmp = (y); (y) = (x); (x) = tmp;
 #define SWAP_ARRAY(t, a, i, j) t tmp = a[j]; a[j] = a[i]; a[i] = tmp;
 
-/* binsearch.c */
-size_t binsearch(long val, long *array, size_t lim);
-
 /* permute.c */
 bool permute_lexicographic(char *a);
 bool permute_reverse_lexicographic(char *a);
@@ -30,4 +27,10 @@ bool is_digit(char digit);
 uint8_t num_digits(uint32_t x);
 uint64_t concat_uint32(uint32_t x, uint32_t y);
 bool is_pandigital(uint32_t x, uint8_t n);
+
+/* compfuncs.c */
+int comp_uint32(const void *x, const void *y);
+int comp_uint64(const void *x, const void *y);
+int comp_int32(const void *x, const void *y);
+int comp_int64(const void *x, const void *y);
 
