@@ -6,14 +6,14 @@
  * input file. */
 int main(int argc, char *argv[])
 {
-    long long unsigned int largest_product;
+    uint64_t largest_product;
 
     if (read_input_num(argc, argv) != 0)
         return 1;
 
     largest_product = find_largest_product();
 
-    printf("Largest product of %u adjacent digits is %llu.\n",
+    printf("Largest product of %u adjacent digits is %" PRIu64 ".\n",
             ADJ_DIGITS,
             largest_product);
 
@@ -52,10 +52,10 @@ int read_input_num(int argc, char *argv[])
 
 
 /* Finds the largest product of successive digits in the bignum array. */
-long long unsigned int find_largest_product(void)
+uint64_t find_largest_product(void)
 {
-    long long unsigned int product;
-    long long unsigned int max_product = 0;
+    uint64_t product;
+    uint64_t max_product = 0;
     int i;
 
     for (i = 0; i + ADJ_DIGITS < NUMSIZE; i++) {
@@ -69,13 +69,13 @@ long long unsigned int find_largest_product(void)
 
 
 /* Find the product of the first ADJ_DIGITS digits in the bignum array. */
-long long unsigned int find_product(int i)
+uint64_t find_product(int i)
 {
-    long long unsigned int product;
+    uint64_t product;
     int j;
 
     for (j = 0, product = 1; j < ADJ_DIGITS; j++)
-        product *= (long long unsigned int) bignum[i + j];
+        product *= (uint64_t) bignum[i + j];
 
     return product;
 }

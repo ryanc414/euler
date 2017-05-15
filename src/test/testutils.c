@@ -137,14 +137,14 @@ int test_is_prime(void)
 /* Test the prime_sieve function. */
 int test_prime_sieve(void)
 {
-    unsigned long num_primes = 0;
-    unsigned long limit = 10;
-    unsigned long expct_primes[] = {2, 3, 5, 7};
-    unsigned long expct_num_primes = 4;
+    uint32_t num_primes = 0;
+    uint32_t limit = 10;
+    uint32_t expct_primes[] = {2, 3, 5, 7};
+    uint32_t expct_num_primes = 4;
     int i;
 
     /* Use the sieve to find primes. */
-    unsigned long *primes = prime_sieve(&num_primes, limit);
+    uint32_t *primes = prime_sieve(&num_primes, limit);
 
     /* Check that the expected primes are returned. */
     assert(num_primes == expct_num_primes);

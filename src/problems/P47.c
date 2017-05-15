@@ -3,9 +3,9 @@
 
 int main()
 {
-    long int n;
-    int count = 0;
-    unsigned long num_primes;
+    uint32_t n;
+    uint32_t num_primes;
+    uint8_t count = 0;
 
     primes = prime_sieve(&num_primes, LIMIT);
 
@@ -15,16 +15,16 @@ int main()
         else
             ++count;
 
-    printf("First number is: %ld\n", n - NUM_FACTORS);
+    printf("First number is: %" PRIu32 "\n", n - NUM_FACTORS);
 
     return 0;
 }
 
 
-int num_distinct_prime_factors(long int n)
+uint8_t num_distinct_prime_factors(uint32_t n)
 {
-    long int i;
-    int count = 0;
+    uint32_t i;
+    uint8_t count = 0;
 
     for (i = 0; primes[i] <= n; i++)
         if (n % primes[i] == 0)
@@ -32,3 +32,4 @@ int num_distinct_prime_factors(long int n)
 
     return count;
 }
+

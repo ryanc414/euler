@@ -4,17 +4,17 @@
 /* Print the sum of multiples of 3 or 5 below 1000. */
 int main()
 {
-  printf("%d\n", sum_ntuples(A, B));
+  printf("%" PRIu32 "\n", sum_ntuples(A, B));
 
   return 0;
 }
 
 
 /* Sum multiples of x and y below N_MAX. */
-int sum_ntuples(int x, int y)
+uint32_t sum_ntuples(uint16_t x, uint16_t y)
 {
-    int sum = 0;
-    int i;
+    uint32_t sum = 0;
+    uint16_t i;
 
     for (i = 1; i < N_MAX; i++) {
         if (i % x == 0 || i % y == 0) {

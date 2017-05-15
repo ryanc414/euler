@@ -2,9 +2,9 @@
 
 
 /* is_prime(n): check if integer n is prime, by looking for divisors. */
-bool is_prime(unsigned long n)
+bool is_prime(uint32_t n)
 {
-    long divisor, limit = (long) sqrt(n);
+    uint32_t divisor, limit = (uint32_t) sqrt(n);
 
     for (divisor = 2; divisor <= limit; divisor++)
         if (n % divisor == 0)
@@ -16,11 +16,11 @@ bool is_prime(unsigned long n)
 /* prime_sieve(): Uses a Sieve of Eratosthenes to find all primes below      *
  * limit. Allocates enough memory to store the primes - it is the caller's   *
  * responsibility to free this memory. Returns the number of primes found.   */
-unsigned long *prime_sieve(unsigned long *num_primes, unsigned long limit)
+uint32_t *prime_sieve(uint32_t *num_primes, uint32_t limit)
 {
-    unsigned long i, j;
-    unsigned long sqrt_limit = (unsigned long) sqrt(limit);
-    unsigned long *primes = NULL;
+    uint32_t i, j;
+    uint32_t sqrt_limit = (uint32_t) sqrt(limit);
+    uint32_t *primes = NULL;
     bool prime_bool[limit];
 
     /* Initialise the bool array. */
@@ -40,7 +40,7 @@ unsigned long *prime_sieve(unsigned long *num_primes, unsigned long limit)
             (*num_primes)++;
 
     /* Allocate memory for the primes. */
-    primes = malloc((*num_primes) * sizeof(unsigned long));
+    primes = malloc((*num_primes) * sizeof(uint32_t));
     assert(primes != NULL);
 
     /* Add all primes out to output array. */

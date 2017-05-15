@@ -1,3 +1,3 @@
 #include <problems.h>
 
-int prime_and_two_sq(int n);
+bool prime_and_two_sq(uint32_t n);

@@ -1,9 +1,11 @@
 #include <problems.h>
 
 #define LIMIT 1000000
-#define IS_PRIME(n) (binsearch((long)(n), (long *)primes, num_primes) != num_primes)
+#define IS_PRIME(n)                                                           \
+  (bsearch(&(n), primes, num_primes, sizeof(uint32_t), comp_uint32) != NULL)
 
-int max_consec_prime_sum(void);
+uint32_t max_consec_prime_sum(void);
 
-static unsigned long *primes;
-unsigned long num_primes;
+static uint32_t *primes;
+uint32_t num_primes;
+

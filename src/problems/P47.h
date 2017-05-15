@@ -3,7 +3,7 @@
 #define NUM_FACTORS 4
 #define LIMIT 1000000l
 
-int num_distinct_prime_factors(long int);
+uint8_t num_distinct_prime_factors(uint32_t n);
 
-unsigned long *primes;
+uint32_t *primes;
 

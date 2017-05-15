@@ -3,14 +3,14 @@
 
 int main()
 {
-    printf("Side length: %d\n", find_side_length());
+    printf("Side length: %" PRIu32 "\n", find_side_length());
     return 0;
 }
 
 /* Find the side length when fewer than 10% of diagonal values are primes. */
-int find_side_length(void)
+uint32_t find_side_length(void)
 {
-    int i, n, step, prime_count, total_count;
+    uint32_t i, n, step, prime_count, total_count;
 
     /* Define sequence start point. */
     n = 1;

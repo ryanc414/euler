@@ -11,6 +11,6 @@ static char bignum[NUMSIZE];
 
 /* P8.c functions */
 int read_input_num(int argc, char *argv[]);
-long long unsigned int find_largest_product(void);
-long long unsigned int find_product(int i);
+uint64_t find_largest_product(void);
+uint64_t find_product(int i);
 

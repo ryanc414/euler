@@ -16,8 +16,8 @@ bool permute_lexicographic(char *a);
 bool permute_reverse_lexicographic(char *a);
 
 /* primes.c */
-bool is_prime(unsigned long n);
-unsigned long *prime_sieve(unsigned long *num_primes, unsigned long limit);
+bool is_prime(uint32_t n);
+uint32_t *prime_sieve(uint32_t *num_primes, uint32_t limit);
 
 /* reverse.c */
 void reverse(char *s);

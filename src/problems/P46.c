@@ -1,28 +1,27 @@
 #include <P46.h>
 
-int prime_and_two_sq(int n);
-
 
 int main()
 {
-    int n;
+    uint32_t n;
 
     for (n = 3; prime_and_two_sq(n); n += 2)
         ;
 
-    printf("%d violates the conjecture.\n", n);
+    printf("%" PRIu32 " violates the conjecture.\n", n);
 
     return 0;
 }
 
 
-int prime_and_two_sq(int n)
+bool prime_and_two_sq(uint32_t n)
 {
-    int i, resid;
+    uint32_t i;
+    int32_t resid;
 
     for (i = 0; (resid = n - 2 * i * i) > 0; i++)
         if (is_prime(resid))
-            return 1;
-    return 0;
+            return true;
+    return false;
 }
 
