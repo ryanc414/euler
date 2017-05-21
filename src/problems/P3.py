@@ -19,19 +19,19 @@ def main():
     return sorted(prime_factors)[-1]
 
 
-def find_factors(N):
+def find_factors(n):
     """Find factors of integer n."""
     factors = set()
     counter_factors = set()
 
-    limit = int(sqrt(N))
+    limit = int(sqrt(n))
 
     for i in range(2, limit):
-        if (N % i) == 0:
+        if (n % i) == 0:
             factors.add(i)
 
     for factor in factors:
-        counter_factors.add(int(N / factor))
+        counter_factors.add(int(n / factor))
 
     return factors | counter_factors
 
