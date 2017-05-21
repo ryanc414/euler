@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P54 - Poker Hands"""
 
 from sys import argv

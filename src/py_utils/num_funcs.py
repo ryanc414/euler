@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Provides common functions related to integers."""
 from math import sqrt
 

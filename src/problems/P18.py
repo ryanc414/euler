@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Maximum path sum 1"""
 from sys import argv
 

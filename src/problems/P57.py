@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P57 - how many fractions in first 1000 expansions of sqrt(2) contain more
 digits in numerator than denominator.
 

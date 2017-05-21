@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P5: Smallest integer divisible by all integers in range 1-20"""
 
 from itertools import count

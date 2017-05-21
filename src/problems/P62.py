@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P62 - Cubic Permutations"""
 
 REQUIRED_PERMS = 5 

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Find greatest product of four adjacent numbers in NxN grid
 Usage: specify grid in plaintext file as command line arg

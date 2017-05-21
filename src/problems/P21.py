@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Sum of amicable numbers less than 10000"""
 from num_funcs import sum_of_divisors
 

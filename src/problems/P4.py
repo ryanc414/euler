@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P4: largest palindromic product of two 3-digit nums."""
 
 LOWER_LIMIT = 100

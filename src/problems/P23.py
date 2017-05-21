@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Non-abundant sums"""
 from num_funcs import sum_of_divisors
 

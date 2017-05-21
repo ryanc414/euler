@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Trucatable Primes"""
 
 from iterable_nums import IterableInt

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Quadratic Primes"""
 from primes import is_prime
 

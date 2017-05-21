@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Provides a class that allows iteration through digits in a number.
 """

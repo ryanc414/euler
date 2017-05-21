@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Distinct Powers"""
 LOWER_LIMIT = 2
 UPPER_LIMIT = 100

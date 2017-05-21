@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P61 - find an ordered set of 6 4-digit numbers that are cyclic (last and
 first two digits of neighbouring numbers overlap) and contain one each of
 triangle, square, pentagonal, hexagonal, heptagonal and octagonal numbers

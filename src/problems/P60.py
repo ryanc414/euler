@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Project Euler Problem 60 - Prime Pair Sets"""
 
 from primes import prime_sieve, is_prime

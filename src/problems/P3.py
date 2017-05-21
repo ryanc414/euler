@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P3: Largest prime factor of 600851475143"""
 
 from math import sqrt

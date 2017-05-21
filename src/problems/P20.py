@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Factorial digit sum"""
 from digits import sum_digits
 from math import factorial

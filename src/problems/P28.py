@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Number spiral diagonals"""
 import numpy as np
 import directions

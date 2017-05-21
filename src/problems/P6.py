@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P6: Square of sum minus sum of squares.
 (1 + 2 + ...)^2 - 1^2 + 2^2 + ..."""
 

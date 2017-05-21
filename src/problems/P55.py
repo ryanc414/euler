@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P55: find the number of Lychrel numbers below 10000.
 
 A Lychrel number produces no palindromes through any number

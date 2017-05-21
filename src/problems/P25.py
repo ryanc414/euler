@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """1000-digit Fibonacci number"""
 
 from math import log10

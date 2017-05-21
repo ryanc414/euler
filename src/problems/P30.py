@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Digit Fifth Powers"""
 from math import log10
 from digits import gen_reverse_digits

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 LIMIT = int(1e11)
 MULTIPLES = list(range(2, 7))

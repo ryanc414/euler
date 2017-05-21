@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """P59 - XOR Decryption"""
 
 from sys import argv

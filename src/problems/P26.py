@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Reciprocal cycles"""
 from math import log10
 from decimal import *
