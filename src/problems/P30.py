@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#!pypy
 """Digit Fifth Powers"""
 from math import log10
+from digits import gen_reverse_digits
 
 LOWER_LIMIT = 2  # Exclude trivial 1^5 = 1
 POWER = 5  # we are interested in fifth powers
@@ -39,17 +39,12 @@ def main():
     return sum_fifth_powers
 
 
-def digits(n):
-    while n:
-        yield n % 10
-        n //= 10
-
 
 def sum_of_power_digits(n, power):
     """
     Sum each digit in an integer raised to power.
     """
-    return sum(digit ** power for digit in digits(n))
+    return sum(digit ** power for digit in gen_reverse_digits(n))
 
 
 if __name__ == '__main__':

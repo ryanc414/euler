@@ -5,6 +5,8 @@ Pandigital Products
 A product z is pandigital iff the statement "x * y = z" contains all of
 the digits 1 to n once only for valid multiplicand/multiplier pair x, y.
 """
+from num_funcs import gen_ints_of_len
+
 DIGITS = list(range(1, 10))
 STR_DIGITS = list(map(str, DIGITS))
 
@@ -22,8 +24,8 @@ def unique_pandigital_products():
     """
     products = set()
     for pair in digit_pairs():
-        for x in generate_integers(length=pair[0]):
-            for y in generate_integers(length=pair[1]):
+        for x in gen_ints_of_len(pair[0]):
+            for y in gen_ints_of_len(pair[1]):
                 product = x * y
                 if is_pandigital(x, y, product):
                     products.add(product)
@@ -47,13 +49,6 @@ def digit_pairs():
             elif digit_sum > target_sums[1]:
                 break
     return good_pairs
-
-
-def generate_integers(length=1):
-    """Generates all integers of a given length."""
-    upper_limit = 10 ** length
-    lower_limit = upper_limit // 10
-    return range(lower_limit, upper_limit)
 
 
 def is_pandigital(x, y, product):

@@ -6,7 +6,7 @@ Finds the sum of all n equal to the sum of the factorial of their digits,
 for n > 9.
 """
 from math import factorial
-from P30 import digits
+from digits import gen_reverse_digits
 
 DIGITS = list(range(10))
 
@@ -54,7 +54,7 @@ def main():
 
 def find_digit_factorial_sum(n):
     """Sum the factorials of digits in an integer n."""
-    return sum(FACT_DIGITS[digit] for digit in digits(n))
+    return sum(FACT_DIGITS[digit] for digit in gen_reverse_digits(n))
 
 
 if __name__ == '__main__':

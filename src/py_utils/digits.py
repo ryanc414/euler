@@ -7,8 +7,15 @@ def sum_digits(n):
     Sums all digits in an integer
     """
     sum = 0
-    for digit in str(n):
-        sum += int(digit)
+    for digit in gen_reverse_digits(n):
+        sum += digit
 
     return sum
+
+
+def gen_reverse_digits(n):
+    """Efficiently generate digits of an integer in reverse order."""
+    while n:
+        yield n % 10
+        n //= 10
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Provides functions related to numbers."""
+"""Provides common functions related to integers."""
 from math import sqrt
 
 
@@ -25,4 +25,11 @@ def sum_of_divisors(n):
         sum += divisor
 
     return sum
+
+
+def gen_ints_of_len(length):
+    """Generates all integers of a given length."""
+    upper_limit = 10 ** length
+    lower_limit = upper_limit // 10
+    return range(lower_limit, upper_limit)
 

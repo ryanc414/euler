@@ -2,7 +2,7 @@
 """
 Circular Primes
 """
-from P30 import digits
+from digits import gen_reverse_digits
 from primes import prime_sieve
 
 UPPER_LIMIT = int(1e6)
@@ -49,7 +49,7 @@ def rotations(n):
             j += 1
         return ans
 
-    n_digits = list(digits(n))[::-1]
+    n_digits = list(gen_reverse_digits(n))[::-1]
     limit = len(n_digits)
     for i in range(limit):
         n_digits = rotate(n_digits, limit)

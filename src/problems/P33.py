@@ -7,8 +7,8 @@ common digit which is removed to generate c, d. Restricting a, b to be 2 digits
 in length and a < b and disregarding trivial examples where a, b are products
 of 10 leaves just four such fractions.
 """
-from P30 import digits
-from P32 import generate_integers
+from digits import gen_reverse_digits
+from num_funcs import gen_ints_of_len
 from decimal import Decimal
 from operator import mul
 from functools import reduce
@@ -31,7 +31,7 @@ def main():
 def find_all_cancelling_fractions():
     """Returns a set of all cancelling fractions."""
     fractions = set()
-    number_range = generate_integers(length=LENGTH)
+    number_range = gen_ints_of_len(LENGTH)
     for x in number_range:
         for y in range(x + 1, max(number_range) + 1):
             if x != y and x % 10 != 0 and y % 10 != 0:
@@ -58,8 +58,8 @@ def check_for_cancelled_fraction(x, y):
 
 def shares_digit(x, y):
     """Return the first digit shared by numbers x, y."""
-    for digit in digits(x):
-        if digit in digits(y):
+    for digit in gen_reverse_digits(x):
+        if digit in gen_reverse_digits(y):
             return digit
 
 
