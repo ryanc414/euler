@@ -87,7 +87,7 @@ EXPCT_RESULTS = {
     58: "Side length: 26241",
     59: "107359",
     60: "[13, 5197, 5701, 6733, 8389]\nSum of lowest set: 26033",
-    61: "deque([8256, 5625, 2512, 1281, 8128, 2882])\nSum of lowest set: 28684",
+    61: "Sum of lowest set: 28684",
     62: "Set found: {589323567104, 569310543872, 373559126408, 352045367981, 127035954683}\n"
         "Lowest member of set is: 127035954683",
     63: "Sum: 49",

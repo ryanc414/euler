@@ -15,6 +15,9 @@ def sum_digits(n):
 
 def gen_reverse_digits(n):
     """Efficiently generate digits of an integer in reverse order."""
+    if n == 0:
+        yield n
+
     while n:
         yield n % 10
         n //= 10

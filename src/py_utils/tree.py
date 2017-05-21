@@ -13,7 +13,7 @@ class Found(Exception):
 
 
 class Node(object):
-    """A node in a tree has a value and may contain a parent and/or multiple 
+    """A node in a tree has a value and may contain a parent and/or multiple
     children."""
     def __init__(self, val, children=None, parent=None):
         self.val = val
@@ -45,14 +45,14 @@ class Node(object):
 
 
 def traverse_dfs(node, stack=None, callback=None):
-    """Perform a depth first search, with optional callback appled to each
+    """Perform a depth first search, with optional callback applied to each
     node."""
-    if callback:
-        keep_searching = callback(node, stack)
-    else:
-        keep_searching = True
+    continue_searching = True
 
-    if keep_searching:
+    if callback:
+        continue_searching = callback(node, stack)
+
+    if continue_searching:
         if stack is not None:
             stack.append(node)
 
@@ -70,7 +70,6 @@ def traverse_bfs(node, fringe=None, callback=None):
         fringe = deque(node)
 
     while fringe:
-        print(fringe)
         node = fringe.pop()
 
         if callback:
@@ -92,8 +91,6 @@ def traverse_a(node, cost):
     while fringe:
         # Explore the next state with the lowest cost.
         current = fringe.pop()
-
-        print("Checking {}".format(current))
 
         if current.cost == 0:
             # Solution found! Walk backwards from leaf back to parent
@@ -118,4 +115,6 @@ def lookup(val, node, _):
     """Sample callback function to find a given value in a tree."""
     if node.val == val:
         raise Found(val)
+
+    return True
 

@@ -18,12 +18,6 @@ class IterableInt(object):
         for digit in self.digits:
             yield digit
 
-    def reverse_digits(self):
-        n = self
-        while n:
-            yield n % 10
-            n //= 10
-
     def __add__(self, other):
         return IterableInt(self.n + other)
 

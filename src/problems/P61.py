@@ -10,7 +10,6 @@ from tree import Found
 
 def main():
     lowest_set = find_lowest_set()
-    print(lowest_set)
     print("Sum of lowest set: {0}".format(sum(lowest_set)))
 
 

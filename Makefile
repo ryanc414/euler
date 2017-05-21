@@ -13,7 +13,7 @@ all: problems tests
 
 problems: lib/libutils.so $(BIN) $(PY)
 
-tests: test/testutils test/testproblems problems
+tests: test/test_c_utils test/test_py_utils test/test_problems problems
 
 clean:
 	rm -f bin/* lib/* test/*
@@ -27,9 +27,12 @@ bin/%: src/problems/%.py
 lib/libutils.so: $(LIBSRC)
 	$(CC) $(CFLAGS) -shared -fPIC -I src/c_utils src/c_utils/*.c -o lib/libutils.so
 
-test/testutils: src/test/testutils.c $(LIBSRC) lib/libutils.so
+test/test_c_utils: src/test/test_c_utils.c $(LIBSRC) lib/libutils.so
 	$(CC) $(CFLAGS) $< -o $@ $(LDLIBS)
 
-test/testproblems: src/test/testproblems.py
+test/test_py_utils: src/test/test_py_utils.py $(PYUTILS)
+	ln -sf ../$< $@
+
+test/test_problems: src/test/test_problems.py
 	ln -sf ../$< $@
 
