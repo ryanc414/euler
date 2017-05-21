@@ -37,7 +37,7 @@ EXPCT_RESULTS = {
     8: "Largest product of 13 adjacent digits is 23514624000.",
     9: "a = 200, b = 375, c = 425\nProduct abc = 31875000",
     10: "Sum of primes less than 2000000 is 142913828922",
-    11: "Max product is: 70600674",
+    11: "Maximum product of four consecutive elements is 70600674",
     12: "First triangle number to have over 500 divisors: 12375th number is 76576500 and has 576 divisors.",
     13: "5537376230",
     14: "Longest starter was 837799",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Non-abundant sums"""
-from P21 import sum_of_divisors
+from num_funcs import sum_of_divisors
 
 UPPER_LIMIT = 28123
 

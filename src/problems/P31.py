@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Coin sums"""
-from P28 import Matrix
+import numpy as np
 
 COINS = [1, 2, 5, 10, 20, 50, 100, 200]
 TARGET = 200
@@ -8,7 +8,8 @@ TARGET = 200
 
 def main():
     """Find all possible combinations of COINS to form TARGET."""
-    combinations = Matrix(TARGET + 1, len(COINS))
+    combinations = np.matrix([[None for _ in range(len(COINS))]
+                             for _ in range(TARGET + 1)])
     set_1p_column(combinations)
     add_other_combinations(combinations)
     return combinations[TARGET, len(COINS) - 1]
