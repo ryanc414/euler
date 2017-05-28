@@ -88,8 +88,7 @@ EXPCT_RESULTS = {
     59: "107359",
     60: "[13, 5197, 5701, 6733, 8389]\nSum of lowest set: 26033",
     61: "Sum of lowest set: 28684",
-    62: "Set found: {589323567104, 569310543872, 373559126408, 352045367981, 127035954683}\n"
-        "Lowest member of set is: 127035954683",
+    62: "Lowest member of set is: 127035954683",
     63: "Sum: 49",
     64: "1322"
 }
