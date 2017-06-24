@@ -3,8 +3,6 @@
 that the minimal solution in x is maximised, with both x and y as positive
 integers."""
 
-import math
-import itertools
 import num_funcs
 import continued_fractions as cf
 
