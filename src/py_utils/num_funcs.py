@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Provides common functions related to integers."""
-from math import sqrt
+import math
 
 
 class Divisors(object):
@@ -9,7 +9,7 @@ class Divisors(object):
         self.n = n
 
     def __iter__(self):
-        limit = sqrt(self.n)
+        limit = math.sqrt(self.n)
         for i in range(1, int(limit) + 1):
             if self.n % i == 0:
                 yield i
@@ -32,4 +32,20 @@ def gen_ints_of_len(length):
     upper_limit = 10 ** length
     lower_limit = upper_limit // 10
     return range(lower_limit, upper_limit)
+
+
+def is_odd(n):
+    """Check if integer n is odd."""
+    return (n % 2) != 0
+
+
+def is_even(n):
+    """Check if integer n is even."""
+    return (n % 2) == 0
+
+
+def is_square(n):
+    """Check if integer n is a perfect square."""
+    x = math.sqrt(n)
+    return x == math.floor(x)
 

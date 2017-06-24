@@ -8,7 +8,7 @@ import argparse
 
 
 # Test parameters
-NUM_TESTS = 65
+NUM_TESTS = 66
 NUM_WORKERS = 2
 POLL_TIME = 0.1
 
@@ -91,7 +91,8 @@ EXPCT_RESULTS = {
     62: "Lowest member of set is: 127035954683",
     63: "Sum: 49",
     64: "1322",
-    65: "100th approx to e's digit sum = 272"
+    65: "100th approx to e's digit sum = 272",
+    66: "Largest minimal x produced for D = 661"
 }
 
 class TestProblems(unittest.TestCase):
