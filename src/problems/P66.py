@@ -17,7 +17,6 @@ def find_smallest_x(D):
     approximations to the square root of D - see
     http://mathworld.wolfram.com/PellEquation.html"""
     cfsqrt = cf.ContinuedFractionSqRoot(D)
-    cfsqrt.find_coeffs()
 
     if cfsqrt.is_square:
         # No solution for square D. Return 0 to signify this.
