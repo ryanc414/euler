@@ -8,7 +8,7 @@ import argparse
 
 
 # Test parameters
-NUM_TESTS = 66
+NUM_TESTS = 68
 NUM_WORKERS = 2
 POLL_TIME = 0.1
 
@@ -24,6 +24,7 @@ COMMANDS[22].append("data/p022_names.txt")
 COMMANDS[42].append("data/p042_words.txt")
 COMMANDS[54].append("data/p054_poker.txt")
 COMMANDS[59].append("data/p059_cipher.txt")
+COMMANDS[67].append("data/p067_triangle.txt")
 
 # Expected stdout of each command
 EXPCT_RESULTS = {
@@ -92,7 +93,9 @@ EXPCT_RESULTS = {
     63: "Sum: 49",
     64: "1322",
     65: "100th approx to e's digit sum = 272",
-    66: "Largest minimal x produced for D = 661"
+    66: "Largest minimal x produced for D = 661",
+    67: "7273",
+    68: "Max ngon integer is 6531031914842725"
 }
 
 class TestProblems(unittest.TestCase):
