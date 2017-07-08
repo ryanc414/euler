@@ -12,9 +12,22 @@ class NGon(object):
     specified by n pairs of non-repeating numbers."""
     def __init__(self, values):
         self.n = len(values) 
-        self._values = tuple(values) 
+        self._values = tuple(values)
+        self._str = self.gen_str()
 
     def __str__(self):
+        """Return the NGon string."""
+        return self._str
+
+    def __hash__(self):
+        """Hash on the NGon string."""
+        return hash(str(self))
+
+    def __getitem__(self, key):
+        """Access NGon values."""
+        return self._values[key]
+
+    def gen_str(self):
         """Return a string representation of the Ngon."""
         min_edge_val = self[0][0]
         start_ix = 0
@@ -28,20 +41,14 @@ class NGon(object):
         return ''.join(str(x) for x in chain.from_iterable(
             self[(i + start_ix) % self.n] for i in range(self.n)))
 
-    def __hash__(self):
-        return hash(str(self))
-
-    def __getitem__(self, key):
-        return self._values[key]
-
 
 def main():
     """Find all possible NGon solutions. Print the solution with the greatest
     numerical value of ngon digits with the required length."""
     ngon_sols = find_all_ngon_sols()
     ngon_strs = set(str(ngon) for ngon in ngon_sols)
-    ngon_ints = set(int(ngon_str) for ngon_str in ngon_strs
-                    if len(ngon_str) == TARGET_LEN) 
+    ngon_ints = (int(ngon_str) for ngon_str in ngon_strs
+                 if len(ngon_str) == TARGET_LEN) 
 
     print("Max ngon integer is {}".format(max(ngon_ints)))
 
@@ -80,10 +87,11 @@ def fill_ngon(ngon, numbers, i, ngon_set, total):
         next_triplet = ((numbers.pop()), ngon[i - 1][2], ngon[0][1])
         if sum(next_triplet) == total:
             ngon[i] = next_triplet
+            
+            # Sanity check that we have a valid solution
             assert i == N - 1
             assert len(ngon) == N 
-            for i in range(N):
-                assert sum(ngon[i]) == total
+            assert all(sum(ngon[i]) == total for i in range(N))
             ngon_set.add(NGon(ngon))
 
 
