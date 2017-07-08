@@ -13,19 +13,33 @@ class NGon(object):
     specified by n pairs of non-repeating numbers."""
     def __init__(self, n, values):
         self.n = n
-        self.values = [[None, None, None] for _ in range(n)]
-        self.fill_values(values)
+        self.values = values
+        self.valid = self._verify()
 
     def __str__(self):
-        return ''.join(str(x) for x in chain.from_iterable(self.values))
-
-    def verify(self):
-        """Verify that the values form a self-consistent solution"""
-        total = sum(self.values[0])
+        """Return a string representation of the Ngon."""
+        min_edge_val = self[0][0]
+        start_ix = 0
 
         for i in range(1, self.n):
-            if self.values[i][0] <= self.values[0][0]:
-                return False
+            next_edge_val = self[i][0]
+            if next_edge_val < min_edge_val:
+                min_edge_val = next_edge_val
+                start_ix = i
+
+        return ''.join(str(x) for x in chain.from_iterable(
+            self[(i + start_ix) % self.n] for i in range(self.n)))
+
+    def __getitem__(self, key):
+        return (self.values[key][0], self.values[key][1], self.values[(key + 1) % self.n][1])
+
+    def _verify(self):
+        """Verify that the values form a self-consistent solution"""
+        total = sum(self[0])
+
+        # Potential optimization here - check total against max/min possible values
+
+        for i in range(1, self.n):
             if sum(self.values[i]) != total:
                 return False
 
@@ -60,7 +74,7 @@ def main():
 
     for value_set in iter_values(range(1, (2 * N) + 1)):
         ngon = NGon(N, value_set)
-        if ngon.verify():
+        if ngon.valid:
             ngon_list.append(ngon)
 
     for ngon in ngon_list:
