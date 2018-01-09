@@ -6,6 +6,7 @@ N = 5
 TARGET_LEN = 16
 
 
+
 class NGon(object):
     """Represents a 'magic' NGon - a collection of overlapping triplets of
     numbers that all sum to the same total. An Ngon can be uniquely
