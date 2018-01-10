@@ -8,7 +8,7 @@ import argparse
 
 
 # Test parameters
-NUM_TESTS = 68
+NUM_TESTS = 69
 NUM_WORKERS = 2
 POLL_TIME = 0.1
 
@@ -95,7 +95,8 @@ EXPCT_RESULTS = {
     65: "100th approx to e's digit sum = 272",
     66: "Largest minimal x produced for D = 661",
     67: "7273",
-    68: "Max ngon integer is 6531031914842725"
+    68: "Max ngon integer is 6531031914842725",
+    69: "Maximum n/phi(n) = 5.539388020833332 for n = 510510"
 }
 
 class TestProblems(unittest.TestCase):
