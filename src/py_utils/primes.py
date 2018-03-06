@@ -7,7 +7,7 @@ from math import sqrt
 def prime_sieve(n):
     """Find all primes from 2 to n."""
     prime_bool = {num: True for num in range(2, n)}
-    
+
     for i in range(2, int(sqrt(n) + 1)):
         if prime_bool[i]:
             for j in range(i * i, n + 1, i):
@@ -31,6 +31,23 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
+
+def prime_factors_iter(n):
+    """
+    Iterate through the prime factors of n.
+
+    e.g. prime factorisation of 12 = 2 * 2 * 3.
+    """
+    i = 2
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            yield i
+    if n > 1:
+        yield n
 
 
 if __name__ == '__main__':
