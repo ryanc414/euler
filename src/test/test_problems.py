@@ -8,7 +8,7 @@ import argparse
 
 
 # Test parameters
-NUM_TESTS = 70
+NUM_TESTS = 71
 NUM_WORKERS = 2
 POLL_TIME = 0.1
 
@@ -97,7 +97,8 @@ EXPCT_RESULTS = {
     67: "7273",
     68: "Max ngon integer is 6531031914842725",
     69: "Maximum n/phi(n) = 5.539388020833332 for n = 510510",
-    70: "n = 8319823 gives minimal phi(n)/n."
+    70: "n = 8319823 gives minimal phi(n)/n.",
+    71: "428570"
 }
 
 class TestProblems(unittest.TestCase):

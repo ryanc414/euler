@@ -24,6 +24,9 @@ bin/%: src/problems/%.c src/problems/%.h src/problems/problems.h lib/libutils.so
 bin/%: src/problems/%.py
 	ln -sf ../$< $@
 
+bin/%: src/problems/%.hs
+	ghc --make -dynamic $< -o $@
+
 lib/libutils.so: $(LIBSRC)
 	$(CC) $(CFLAGS) -shared -fPIC -I src/c_utils src/c_utils/*.c -o lib/libutils.so
 
