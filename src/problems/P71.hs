@@ -24,7 +24,7 @@ module Main where
     -- valid reduced proper fraction. A fraction n/d is reduced proper iff
     -- n < d and HCF(n, d) = 1.
     findN :: Integer -> Maybe Integer
-    findN d = findNRecur d (startN d)
+    findN d = findNRecur d $ startN d
         where
         startN :: Integer -> Integer
         startN d =
