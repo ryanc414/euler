@@ -8,23 +8,8 @@ import argparse
 
 
 # Test parameters
-NUM_TESTS = 71
 NUM_WORKERS = 2
 POLL_TIME = 0.1
-
-# Shell commands to run the tests.
-COMMANDS = {i + 1: ['./bin/P{}'.format(i + 1)] for i in range(NUM_TESTS)}
-
-# Append any extra args required e.g. to specify input files
-COMMANDS[8].append("data/P8_bignum.txt")
-COMMANDS[11].append("data/P11_grid.txt")
-COMMANDS[13].append("data/P13_numbers.txt")
-COMMANDS[18].append("data/P18_triangle.txt")
-COMMANDS[22].append("data/p022_names.txt")
-COMMANDS[42].append("data/p042_words.txt")
-COMMANDS[54].append("data/p054_poker.txt")
-COMMANDS[59].append("data/p059_cipher.txt")
-COMMANDS[67].append("data/p067_triangle.txt")
 
 # Expected stdout of each command
 EXPCT_RESULTS = {
@@ -98,8 +83,26 @@ EXPCT_RESULTS = {
     68: "Max ngon integer is 6531031914842725",
     69: "Maximum n/phi(n) = 5.539388020833332 for n = 510510",
     70: "n = 8319823 gives minimal phi(n)/n.",
-    71: "428570"
+    71: "428570",
+    72: "303963552391"
 }
+
+NUM_TESTS = len(EXPCT_RESULTS)
+
+# Shell commands to run the tests.
+COMMANDS = {i + 1: ['./bin/P{}'.format(i + 1)] for i in range(NUM_TESTS)}
+
+# Append any extra args required e.g. to specify input files
+COMMANDS[8].append("data/P8_bignum.txt")
+COMMANDS[11].append("data/P11_grid.txt")
+COMMANDS[13].append("data/P13_numbers.txt")
+COMMANDS[18].append("data/P18_triangle.txt")
+COMMANDS[22].append("data/p022_names.txt")
+COMMANDS[42].append("data/p042_words.txt")
+COMMANDS[54].append("data/p054_poker.txt")
+COMMANDS[59].append("data/p059_cipher.txt")
+COMMANDS[67].append("data/p067_triangle.txt")
+
 
 class TestProblems(unittest.TestCase):
     """Tests for the problems."""
@@ -114,9 +117,9 @@ class TestProblems(unittest.TestCase):
     def check_test(self, test):
         """Check whether the test has passed by comparing its stdout to what
         is expected."""
-        (stdout, stderr) = test.process.communicate()
-        self.assertFalse(stderr)
-        stdout = stdout.strip().decode('ascii')
+        (stdout, stderr) = (out.decode('ascii').strip()
+                            for out in test.process.communicate())
+        self.assertEqual(stderr, "")
         self.assertEqual(stdout, EXPCT_RESULTS[test.number],
                          "Test {} failed".format(test.number))
         print("Test {} passed".format(test.number))
